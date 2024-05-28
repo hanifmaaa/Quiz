@@ -24,8 +24,7 @@ float timed_input(char *input, float timeout, float *waktusisa) {
     }
     *waktusisa = 0;
     return 0;
-}
-    
+}  
 void utama(){ //gerbang utama suatu program
     char pilihan, agama, elektronika, pengetahuanumum, waktusisa;
     int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9, nyawa;
@@ -38,7 +37,8 @@ void utama(){ //gerbang utama suatu program
             printf("\n\t\t         SELAMAT DATANG          ");
             printf("\n\t\t               DI                ");
             printf("\n\t\t            KUIS GAME            ");
-            printf("\n\t\t_________________________________");            
+            printf("\n\t\t_________________________________"); 
+			printf("\n\t\t            UHUUYYYY             ");           
             printf("\n\t__________________________________________________");
             printf("\n\t          Klik S untuk memulai                    ");
             printf("\n\t          Klik V untuk melihat hasil tertinggi    ");
@@ -491,7 +491,7 @@ void utama(){ //gerbang utama suatu program
 			                }
 			            case 3:
 			                printf("\n\n3. Mana yang termasuk ciri-ciri rangkaian seri?");
-			                printf("\n\nA. Tegangan berbeda setiap resistor\nB. Arus total sama\nC. Resistor terhubung paralel\nD. Semua benar");
+			                printf("\n\nA. Tegangan berbeda setiap resistor\tB. Arus total sama\nC. Resistor terhubung paralel\t\tD. Semua benar");
 			                pilihan = timed_input(&jawab, 10, &waktusisa);
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
@@ -506,7 +506,7 @@ void utama(){ //gerbang utama suatu program
 			                }
 			            case 4:
 			                printf("\n\n4. Mana yang termasuk ciri-ciri rangkaian paralel?");
-			                printf("\n\nA. Arus total sama\nB. Resistor terhubung seri\nC. Tegangan sama pada setiap resistor\nD. Tidak ada yang benar");
+			                printf("\n\nA. Arus total sama\t\t\tB. Resistor terhubung seri\nC. Tegangan sama pada setiap resistor\tD. Tidak ada yang benar");
 			                pilihan = timed_input(&jawab, 10, &waktusisa);
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
@@ -599,7 +599,7 @@ void utama(){ //gerbang utama suatu program
 			                }
 			            case 3:
 			                printf("\n\n3. Alat yang digunakan untuk mengukur arus listrik adalah?");
-			                printf("\nA. Voltmeter\tB. Ohmmeter\nC. Ammeter\tD. Multimeter");
+			                printf("\nA. Voltmeter\t\tB. Ohmmeter\nC. Ammeter\t\tD. Multimeter");
 			                pilihan = timed_input(&jawab, 10, &waktusisa);
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
@@ -1107,7 +1107,7 @@ void utama(){ //gerbang utama suatu program
                     nilai :
                         system("cls");
                         nilai=(float)point*2;
-                        printf("\n\t\t\tKamu mendapatkan %.2f\n\n\n", nilai);
+                        printf("\n\t\t\tSelamat kamu mendapat %.2f poin\n\n\n", nilai);
                         goto terus;
 
                         terus :
