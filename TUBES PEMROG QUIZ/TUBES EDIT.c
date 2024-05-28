@@ -11,8 +11,8 @@ void hasiltertinggi(); //untuk mendeklarasikan prosedur hasiltertinggi
 void edit_score(float, char[]); //untuk mendeklarasikan prosedur edit_score berparameter float dan char
 void reset_score(); // untuk mendeklarasikan prosedur reset_score
 
-int timed_input(char *input, int timeout, float *waktusisa) {
-    int time_elapsed = 0;
+float timed_input(char *input, float timeout, float *waktusisa) {
+    float time_elapsed = 0;
     while (time_elapsed < timeout) {
         if (kbhit()) {
             *input = getch();
@@ -28,27 +28,25 @@ int timed_input(char *input, int timeout, float *waktusisa) {
     
 int main(){ //gerbang utama suatu program
     char pilihan, agama, elektronika, pengetahuanumum, waktusisa;
-    int point,r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9;
-    float nilai;
+    int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9;
+    float nilai, point;
     char nama[50];
     system("Color F5");
 	tampilanmenu :
 	        system("cls");
-	    	printf("\t\t>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<");
-            printf("\n\t\t>        SELAMAT DATANG         <");
-            printf("\n\t\t>              DI               <");
-            printf("\n\t\t>       KUIS PENGETAHUAN        <");
-            printf("\n\t\t>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<");
+	    	printf("\t\t_________________________________");
+            printf("\n\t\t         SELAMAT DATANG          ");
+            printf("\n\t\t               DI                ");
+            printf("\n\t\t            KUIS GAME            ");
             printf("\n\t\t_________________________________");
-            printf("\n\n\t\t BERDO'ALAH SEBELUM MENGERJAKAN");
-            printf("\n\t\t_________________________________");
-            printf("\n\n\t>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<");
-            printf("\n\t>         Klik S untuk memulai                   <");
-            printf("\n\t>         Klik V untuk melihat hasil tertinggi   <");
-            printf("\n\t>         Klik H untuk bantuan                   <");
-            printf("\n\t>         Klik Q untuk keluar                    <");
-            printf("\n\t>         Klik R untuk mereset skor              <");
-            printf("\n\t>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<");
+            printf("\n______________________________________________________________________");            
+            printf("\n\t__________________________________________________");
+            printf("\n\t          Klik S untuk memulai                    ");
+            printf("\n\t          Klik V untuk melihat hasil tertinggi    ");
+            printf("\n\t          Klik H untuk bantuan                    ");
+            printf("\n\t          Klik Q untuk keluar                     ");
+            printf("\n\t          Klik R untuk mereset skor               ");
+            printf("\n\t _________________________________________________");
 
             pilihan = getch();
             if (pilihan == 'v' || pilihan == 'V'){
@@ -131,11 +129,11 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan &&(jawab == 'd' ||  jawab == 'D')){
                 				printf("\n\nBenar!!");
 								point+=waktusisa;
-								printf("\n\nPoin kamu adalah %2f\n\n",waktusisa);	
+								printf("\n\nPoin kamu adalah %.2f\n\n",waktusisa);	
 								getch();
 								break;		
 							}else{
-								printf("\n\nSalah!!Jawaban benar adalah D\n\n");
+								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -146,11 +144,11 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan &&(jawab == 'a' || jawab == 'A')){
                 				printf("\n\n Benar!!");
 								point+=waktusisa;
-								printf("\n\nPoin kamu adalah %2f\n\n",waktusisa);
+								printf("\n\nPoin kamu adalah %.2f\n\n",waktusisa);
                 				getch();
                 				break;
 							}else{
-								printf("\n\nSalah!!Jawaban benar adalah A\n\n");
+								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -161,11 +159,11 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan && (jawab == 'c' || jawab == 'C')){
                 				printf("\n\nBenar!!");
                 				point+=waktusisa;
-								printf("\n\nPoin kamu adalah %2f\n\n",waktusisa);
+								printf("\n\nPoin kamu adalah %.2f\n\n",waktusisa);
                 				getch();
                 				break;
 							}else{
-								printf("\n\nSalah!!Jawaban benar adalah C\n\n");
+								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -176,11 +174,11 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan && (jawab == 'b' || jawab == 'B')){
                 				printf("\n\nBenar!!");
                 				point+=waktusisa;
-								printf("\n\nPoin kamu adalah %2f\n\n",waktusisa);
+								printf("\n\nPoin kamu adalah %.2f\n\n",waktusisa);
                 				getch();
                 				break;
 							}else{
-								printf("\n\nSalah!!Jawaban benar adalah B\n\n");
+								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -191,13 +189,14 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan &&(jawab == 'a' || jawab == 'A')){
                 				printf("\n\nBenar!!");
                 				point+=waktusisa;
-								printf("\n\nPoin kamu adalah %2f\n\n",waktusisa);
+								printf("\n\nPoin kamu adalah %.2f\n\n",waktusisa);
                 				getch();
                 				goto nilai;
                 				break;
 							}else{
-								printf("\n\nSalah!!Jawaban benar adalah A\n\n");
+								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
+								goto nilai;
 								break;
 							}
 						}
@@ -230,11 +229,11 @@ int main(){ //gerbang utama suatu program
 		                if(pilihan && (jawab == 'c' || jawab == 'C')){
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
-		                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 		                    getch();
 		                    break;
 		                } else {
-		                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 		                    getch();
 		                    break;
 		                }
@@ -245,11 +244,11 @@ int main(){ //gerbang utama suatu program
 		                if(pilihan && (jawab == 'd' || jawab == 'D')){
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
-		                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 		                    getch();
 		                    break;
 		                } else {
-		                    printf("\n\nSalah!! Jawaban benar adalah D\n\n");
+		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 		                    getch();
 		                    break;
 		                }
@@ -260,11 +259,11 @@ int main(){ //gerbang utama suatu program
 		                if(pilihan && (jawab == 'c' || jawab == 'C')){
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
-		                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 		                    getch();
 		                    break;
 		                } else {
-		                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 		                    getch();
 		                    break;
 		                }
@@ -275,11 +274,11 @@ int main(){ //gerbang utama suatu program
 		                if(pilihan && (jawab == 'a' || jawab == 'A')){
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
-		                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 		                    getch();
 		                    break;
 		                } else {
-		                    printf("\n\nSalah!! Jawaban benar adalah A\n\n");
+		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 		                    getch();
 		                    break;
 		                }
@@ -290,12 +289,12 @@ int main(){ //gerbang utama suatu program
 		                if(pilihan && (jawab == 'c' || jawab == 'C')){
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
-		                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 		                    getch();
 		                    goto nilai;
 		                    break;
 		                } else {
-		                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 		                    getch();
 		                    goto nilai;
 		                    break;
@@ -330,11 +329,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -345,11 +344,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -360,11 +359,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -375,11 +374,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -390,12 +389,12 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    goto nilai;
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    goto nilai;
 			                    break;
@@ -447,11 +446,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -462,11 +461,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'a' || jawab == 'A')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah A\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -477,11 +476,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -492,11 +491,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -507,12 +506,12 @@ int main(){ //gerbang utama suatu program
                 			if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    goto nilai;
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    goto nilai;
 			                    break;
@@ -548,11 +547,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -563,11 +562,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'd' || jawab == 'D')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah D\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -578,11 +577,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -593,11 +592,11 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'b' || jawab == 'B')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    break;
 			                }
@@ -608,12 +607,12 @@ int main(){ //gerbang utama suatu program
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
-			                    printf("\n\nPoin kamu adalah %2f\n\n", waktusisa);
+			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 			                    getch();
 			                    goto nilai;
 			                    break;
 			                } else {
-			                    printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 			                    getch();
 			                    goto nilai;
 			                    break;
@@ -649,11 +648,11 @@ int main(){ //gerbang utama suatu program
 							if (pilihan && (jawab == 'b' || jawab == 'B')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
-						        printf("\n\nPoin kamu adalah %f\n\n", waktusisa);
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
@@ -668,7 +667,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -683,7 +682,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
@@ -698,7 +697,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah A\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -713,7 +712,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								goto nilai;
 								break;
@@ -770,7 +769,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
@@ -785,7 +784,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah D\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -800,7 +799,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
@@ -815,7 +814,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
@@ -830,7 +829,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								goto nilai;
 								break;
@@ -871,7 +870,7 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
@@ -886,13 +885,13 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah D\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
 						case 3 :
-							printf("\n\n3. Apa nama sungai terpanjang di dunia?");
-						    printf("\n\nA. Sungai Amazon\tB. Sungai Nil\nC. Sungai Yangtze\tD. Sungai Mississippi");
+							printf("\n\n3. Apa nama gunung tertinggi di dunia?");
+						    printf("\n\nA. Gunung Lawu\tB. Gunung Everest\nC. Gunung Kilimanjaro\tD. Gunung Jaya Wijaya");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'b' || jawab == 'B')) {
 						        printf("\n\nBenar!!");
@@ -901,13 +900,13 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
 						case 4 :
-							printf("\n\n4. Apa ibukota Indonesia?");
-						    printf("\n\nA. Surabaya\tB. Bandung\nC. Jakarta\tD. Medan");
+							printf("\n\n3. Pulau terbesar di Indonesia adalah?");
+						    printf("\nA. Jawa\tB. Sumatra\nC. Kalimantan\tD. Sulawesi");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -916,22 +915,22 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
 						case 5 :
-							printf("\n\n5. Berapakah 5 + 7?");
-						    printf("\n\nA. 10\t\tB. 11\nC. 12\t\tD. 13");
+							printf("\n\n5. Lagu kebangsaan Indonesia adalah?");
+						    printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								goto nilai;
 								break;
@@ -962,8 +961,23 @@ int main(){ //gerbang utama suatu program
                 		switch(r9)
                 		{
                 		case 1:
-                			printf("\n\n1. Siapa nama presiden ketiga Indonesia?");
-						    printf("\n\nA. Sukarno\tB. Soeharto\nC. BJ Habibie\tD. Abdurrahman Wahid");
+                			printf("\n\n1. Pada tahun berapa Revolusi Industri dimulai di Inggris?");
+						    printf("\n\nA. 1600\tB. 1700\nC. 1800\tD. 1900");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				getch();
+                				break;
+							}
+						case 2 :
+							printf("\n\n2. Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?");
+						    printf("\n\nA. Haiku Matsuo\tB. Ryūnosuke Akutagawa\nC. Yasunari Kawabata\tD. Haruki Murakami");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -972,67 +986,52 @@ int main(){ //gerbang utama suatu program
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
-                				getch();
-                				break;
-							}
-						case 2 :
-							printf("\n\n2. Apa nama planet terdekat dari matahari?");
-						    printf("\n\nA. Venus\tB. Mars\nC. Bumi\tD. Merkurius");
-						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'd' || jawab == 'D')) {
-						        printf("\n\nBenar!!");
-						        point += waktusisa;
-						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
-						        getch();
-						        break;
-						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah D\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
 						case 3 :
-							printf("\n\n3. Apa nama sungai terpanjang di dunia?");
-						    printf("\n\nA. Sungai Amazon\tB. Sungai Nil\nC. Sungai Yangtze\tD. Sungai Mississippi");
+							printf("\n\n3. Apa nama struktur geologi yang terbentuk akibat pergerakan lempeng tektonik yang saling bertumbukan?");
+						    printf("\n\nA. Gunung berapi\tB. Palung laut\nC. Pegunungan lipatan\tD. Pegunungan patahan");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah B\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
                 				getch();
                 				break;
 							}
 						case 4 :
-							printf("\n\n4. Apa ibukota Indonesia?");
-						    printf("\n\nA. Surabaya\tB. Bandung\nC. Jakarta\tD. Medan");
+							printf("\n\n4. Apa nama penyakit yang disebabkan oleh kekurangan vitamin B12?");
+						     printf("\n\nA. Anemia pernisiosa\tB. Sklerosis lateral amiotrofik (ALS)\nC. Alzheimer\tD. Parkinson");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								break;
 							}
 						case 5 :
-							printf("\n\n5. Berapakah 5 + 7?");
-						    printf("\n\nA. 10\t\tB. 11\nC. 12\t\tD. 13");
+							printf("\n\n5. Siapa nama seniman terkenal dari Belanda yang terkenal dengan lukisannya yang menggambarkan kehidupan sehari-hari?");
+						    printf("\n\nA. Vincent van Gogh\tB. Rembrandt van Rijn\nC. Johannes Vermeer\tD. Frans Hals");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
 						        getch();
 						        break;
 						    } else {
-						        printf("\n\nSalah!! Jawaban benar adalah C\n\n");
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
 								getch();
 								goto nilai;
 								break;
@@ -1041,30 +1040,8 @@ int main(){ //gerbang utama suatu program
 					}
                     nilai :
                         system("cls");
-                        nilai=(float)point*200000;
-                        if (nilai >= 2000000 )
-                        {
-                            printf("\n\n\t\t\t**************** SELAMAT *****************");
-                            printf("\n\n\t\t\tKAMU MENDAPATKAN HADIAH TERTINGGI!!!!!!!!!");
-                            printf("\n\t\t\tKamu mendapatkan %.2f", nilai);
-                            printf("\n\t\t\tTerimakasih!!");
-                            goto terus;
-                        }
-
-                        else if (nilai > 0 && nilai < 2000000)
-                            {
-                            printf("\n\n\t\t\t**************** SELAMAT *****************");
-                            printf("\n\t\t\tKamu mendapatkan %.2f", nilai);
-                            goto terus;
-                        }
-
-                        else
-                        {
-                            printf("\n\n\t\t\t******** MAAF KAMU  TIDAK MENDAPATKAN HADIAH APAPUN ********");
-                            printf("\n\t\t\tTerimakasih atas partisipasinya");
-                            printf("\n\t\t\tCobalah kembali");
-                            goto terus;
-                        }
+                        nilai=(float)point*20;
+                        goto terus;
 
                         terus :
                             printf("\n\nKlik Y untuk memulai kembali");
@@ -1114,16 +1091,16 @@ void hasiltertinggi() {
     }fclose(file);
 }
 void tips(){
-    printf("\n\nbantuan :  ");
+    printf("\n\nTips :  ");
     printf("\n-------------------------------------------------------------------------");
-    printf("\n>> Diperlukan 3 jawaban benar untuk lulus di sesi PEMANASAN");
-    printf("\n>> Jika sesi PEMANASAN tidak lulus, maka anda tidak mengikuti sesi selanjutnya");
-    printf("\n>> Poin mulai dihitung saat sesi CARI POIN");
-    printf("\n>> Terdapat 12 soal. Menjawab 10 soal benar berhak mendapat 2 juta rupiah!");
+    printf("\n>> Ada 5 soal yang harus kamu jawab");
+    printf("\n>> Di setiap soal akan terdapat timer selama 10 detik");
+    printf("\n>> Poin di setiap soal didapat dari seberapa cepat kamu menjawab");
+    printf("\n>> Poin yang kamu dapat dar setiap soal akan diakumulasikan di nilai akhir");
     printf("\n>> Soal berbentuk pilihan ganda. Klik A, B ,C atau D untuk menjawab");
-    printf("\n>> Jika jawaban benar, soal akan berlanjut.");
-    printf("\n>> Jika jawaban salah, maka pertanyaan akan selesai dan score akan tertampil");
-    printf("\n\n\t\t\t!!!!!!!!!!!!! SEMOGA BERUNTUNG !!!!!!!!!!!!!");
+    printf("\n>> Jika jawaban benar, kamu akan mendapatkan poin.");
+    printf("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin");
+    printf("\n\n\t\t\t!!!!!!!!!!!!! CEMANGATTT !!!!!!!!!!!!!");
 }
 void edit_score(float score, char nama[]) {
     HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
