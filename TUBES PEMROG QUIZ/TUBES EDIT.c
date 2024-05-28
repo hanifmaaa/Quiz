@@ -28,8 +28,8 @@ float timed_input(char *input, float timeout, float *waktusisa) {
     
 int main(){ //gerbang utama suatu program
     char pilihan, agama, elektronika, pengetahuanumum, waktusisa;
-    int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9;
-    float nilai, point;
+    int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9, nyawa;
+    float nilai, point,score;
     char nama[50];
     system("Color F5");
 	tampilanmenu :
@@ -38,8 +38,7 @@ int main(){ //gerbang utama suatu program
             printf("\n\t\t         SELAMAT DATANG          ");
             printf("\n\t\t               DI                ");
             printf("\n\t\t            KUIS GAME            ");
-            printf("\n\t\t_________________________________");
-            printf("\n______________________________________________________________________");            
+            printf("\n\t\t_________________________________");            
             printf("\n\t__________________________________________________");
             printf("\n\t          Klik S untuk memulai                    ");
             printf("\n\t          Klik V untuk melihat hasil tertinggi    ");
@@ -112,7 +111,8 @@ int main(){ //gerbang utama suatu program
                 }
                 soalmudahAgama :
                 	system("cls");
-                	point = 0;                	
+                	point = 0;
+					nyawa = 0;                	
                 	for(i=1;i<=5;i++){
                 		int pilihan;
                 		char jawab;
@@ -133,7 +133,7 @@ int main(){ //gerbang utama suatu program
 								break;		
 							}else{
 								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 2 :
@@ -148,7 +148,7 @@ int main(){ //gerbang utama suatu program
                 				break;
 							}else{
 								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 3 :
@@ -163,7 +163,7 @@ int main(){ //gerbang utama suatu program
                 				break;
 							}else{
 								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 4 :
@@ -178,7 +178,7 @@ int main(){ //gerbang utama suatu program
                 				break;
 							}else{
 								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 5 :
@@ -194,12 +194,18 @@ int main(){ //gerbang utama suatu program
                 				break;
 							}else{
 								printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								goto nilai;
 								break;
 							}
-						}
-					}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            		}
+				}
 				sedangAgama :
 					system("cls");
 					tips();
@@ -214,6 +220,7 @@ int main(){ //gerbang utama suatu program
                 soalsedangAgama:
     			system("cls");
     			point = 0;
+    			nyawa = 0;
     			for(i=1; i<=5; i++){
      		    	int pilihan;
         			char jawab;
@@ -233,7 +240,7 @@ int main(){ //gerbang utama suatu program
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-		                    getch();
+		                    nyawa++;getch();
 		                    break;
 		                }
 		            case 2:
@@ -248,7 +255,7 @@ int main(){ //gerbang utama suatu program
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-		                    getch();
+		                    nyawa++;getch();
 		                    break;
 		                }
 		            case 3:
@@ -259,7 +266,7 @@ int main(){ //gerbang utama suatu program
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
 		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
-		                    getch();
+		                    nyawa++;getch();
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
@@ -278,7 +285,7 @@ int main(){ //gerbang utama suatu program
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-		                    getch();
+		                    nyawa++;getch();
 		                    break;
 		                }
 		            case 5:
@@ -294,11 +301,17 @@ int main(){ //gerbang utama suatu program
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-		                    getch();
+		                    nyawa++;getch();
 		                    goto nilai;
 		                    break;
 		                }
-		        }
+		        }if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            }
 		    }
 				sulitAgama :
 					system("cls");
@@ -313,7 +326,7 @@ int main(){ //gerbang utama suatu program
                 	}
                 soalsulitAgama:
 			    system("cls");
-			    point = 0;
+			    point = 0;nyawa = 0;
 			    for(i=1; i<=5; i++){
 			        int pilihan;
 			        char jawab;
@@ -333,7 +346,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 2:
@@ -348,7 +361,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 3:
@@ -363,7 +376,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 4:
@@ -374,7 +387,7 @@ int main(){ //gerbang utama suatu program
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
 			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
@@ -394,11 +407,17 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    goto nilai;
 			                    break;
 			                }
-			        }
+			        }if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            }
 			    }
 				elektronika :
 					system("cls");
@@ -432,6 +451,7 @@ int main(){ //gerbang utama suatu program
                 soalmudahElka:
 			    system("cls");
 			    point = 0;
+			    nyawa = 0;
 			    for(i=1; i<=5; i++){
 			        int pilihan;
 			        char jawab;
@@ -451,7 +471,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 2:
@@ -466,7 +486,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 3:
@@ -481,7 +501,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 4:
@@ -496,7 +516,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
             			case 5:
@@ -512,11 +532,17 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    goto nilai;
 			                    break;
 			                }
-			        }
+			        }if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            }
 			    }
 				sedangElka :
 					system("cls");
@@ -533,6 +559,7 @@ int main(){ //gerbang utama suatu program
                 soalsedangElka:
 			    system("cls");
 			    point = 0;
+			    nyawa = 0;
 			    for(i=1; i<=5; i++){
 			        int pilihan;
 			        char jawab;
@@ -552,7 +579,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 2:
@@ -567,7 +594,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 3:
@@ -582,7 +609,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 4:
@@ -597,7 +624,7 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 5:
@@ -613,11 +640,17 @@ int main(){ //gerbang utama suatu program
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    goto nilai;
 			                    break;
 			                }
-			        }
+			        }if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            }
 			    }
 				sulitElka :
 					system("cls");
@@ -634,6 +667,7 @@ int main(){ //gerbang utama suatu program
                 soalsulitElka :
                 	system("cls");
                 	point = 0;
+                	nyawa = 0;
                 	for(i=1;i<=5;i++){
                 	int pilihan;
 			        char jawab;
@@ -654,7 +688,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 2 :
@@ -669,7 +703,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 3 :
@@ -684,7 +718,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 4 :
@@ -699,7 +733,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 5 :
@@ -715,11 +749,17 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								goto nilai;
 								break;
 							}
-						}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
 					}
 				pengetahuanumum :
 					system("cls");
@@ -753,6 +793,7 @@ int main(){ //gerbang utama suatu program
 					soalmudahPu :
                 	system("cls");
                 	point = 0;
+                	nyawa = 0;
                 	for(i=1;i<=5;i++){
                 	int pilihan;
 			        char jawab;
@@ -773,7 +814,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 2 :
@@ -788,7 +829,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 3 :
@@ -803,7 +844,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 4 :
@@ -818,7 +859,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 5 :
@@ -834,11 +875,17 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								goto nilai;
 								break;
 							}
-						}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
 					}
 					sedangPu :
 					system("cls");
@@ -854,7 +901,7 @@ int main(){ //gerbang utama suatu program
                 }
 					soalsedangPu :
                 	system("cls");
-                	point = 0;
+                	point = 0;nyawa = 0;
                 	for(i=1;i<=5;i++){
                 	int pilihan;
 			        char jawab;
@@ -875,7 +922,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 2 :
@@ -890,7 +937,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 3 :
@@ -905,7 +952,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 4 :
@@ -920,7 +967,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 5 :
@@ -936,11 +983,17 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								goto nilai;
 								break;
 							}
-						}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
 					}
 					sulitPu :
 					system("cls");
@@ -957,6 +1010,7 @@ int main(){ //gerbang utama suatu program
 					soalsulitPu :
                 	system("cls");
                 	point = 0;
+                	nyawa = 0;
                 	for(i=1;i<=5;i++){
                 	int pilihan;
 			        char jawab;
@@ -977,7 +1031,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 2 :
@@ -992,7 +1046,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 3 :
@@ -1007,7 +1061,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-                				getch();
+                				nyawa++;getch();
                 				break;
 							}
 						case 4 :
@@ -1022,7 +1076,7 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								break;
 							}
 						case 5 :
@@ -1038,11 +1092,17 @@ int main(){ //gerbang utama suatu program
 						        break;
 						    } else {
 						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-								getch();
+								nyawa++;getch();
 								goto nilai;
 								break;
 							}
-						}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
 					}
                     nilai :
                         system("cls");
@@ -1053,8 +1113,14 @@ int main(){ //gerbang utama suatu program
                         terus :
                             printf("\nKlik apapun untuk kembali ke menu");
                             pilihan = getch();
-                                goto tampilanmenu;
+                            edit_score(nilai, nama);
+                            goto tampilanmenu;
         
+}else{
+	Sleep(200);
+	printf("\n\n\n\n\t\tTOLONG PENCET SESUAI PERINTAH!!!!");
+	Sleep(2000);
+	goto tampilanmenu;
 }
 }
 typedef struct {
@@ -1063,11 +1129,14 @@ typedef struct {
 } HighscoreEntry;
 
 void reset_score() {
+	HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
     FILE *file = fopen("score.txt", "w");
     if (file == NULL) {
         printf("Gagal mereset skor.");
     } else {
-        fprintf(file, "0\n");
+    	for(int i=0;i<3;i++){
+        	fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
+        }
         printf("Skor berhasil direset.");
     }
     fclose(file);
@@ -1082,9 +1151,7 @@ void hasiltertinggi() {
         printf("\n\n\t\t\t*************************************************************");
         for (i = 0; i < 3; ++i) {
             fscanf(file, "%f %s", &entries[i].score, entries[i].name);
-            if (strcmp(entries[i].name, "-") != 0) {
-                printf("\n\t\t\t%d. %s \t\ttelah berhasil mendapat skor: %.2f", i + 1, entries[i].name, entries[i].score);
-            }
+                printf("\n\t\t\t\t%d. %s \t\ttelah berhasil mendapat skor: %.2f", i + 1, entries[i].name, entries[i].score);
         }printf("\n\n\t\t\t*************************************************************");
     }fclose(file);
 }
@@ -1100,7 +1167,7 @@ void tips(){
     printf("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin");
     printf("\n\n\t\t\t!!!!!!!!!!!!! SEMANGATTT !!!!!!!!!!!!!");
 }
-void edit_score(float score, char nama[]) {
+void edit_score(float score, char nama[50]) {
     HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
     FILE *file = fopen("score.txt", "r");
     if (file != NULL) {
