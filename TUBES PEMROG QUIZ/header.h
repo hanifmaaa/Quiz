@@ -1161,7 +1161,7 @@ void tips(){
     printf("\n>> Ada 5 soal yang harus kamu jawab");
     printf("\n>> Di setiap soal akan terdapat timer selama 10 detik");
     printf("\n>> Poin di setiap soal didapat dari seberapa cepat kamu menjawab");
-    printf("\n>> Poin yang kamu dapat dar setiap soal akan diakumulasikan di nilai akhir");
+    printf("\n>> Poin yang kamu dapat dari setiap soal akan diakumulasikan di nilai akhir");
     printf("\n>> Soal berbentuk pilihan ganda. Klik A, B ,C atau D untuk menjawab");
     printf("\n>> Jika jawaban benar, kamu akan mendapatkan poin.");
     printf("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin");
