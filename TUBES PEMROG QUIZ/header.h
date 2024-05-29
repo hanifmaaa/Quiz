@@ -1,11 +1,11 @@
-#include <stdio.h> //library standar input dan output
-#include <conio.h> //library untuk menggunakan fungsi getch
-#include <stdlib.h> //library standar operasi standar pembanding dan konversi
-#include <ctype.h> //library untuk mengelompokkan dan memanipulasi karakter
-#include <string.h> //library untuk mengolah tipe data string
-#include <windows.h> //library untuk menampilkan warna
-#include <time.h> //library untuk waktu
-void tips(); //untuk mendeklarasikan prosedur tips
+#include <stdio.h> 
+#include <conio.h> 
+#include <stdlib.h> 
+#include <ctype.h> 
+#include <string.h> 
+#include <windows.h>
+#include <time.h> 
+void tips(); 
 void soalkuis(); //untuk mendeklarasikan prosedur soalkuis
 void hasiltertinggi(); //untuk mendeklarasikan prosedur hasiltertinggi
 void edit_score(float, char[]); //untuk mendeklarasikan prosedur edit_score berparameter float dan char
@@ -30,14 +30,13 @@ void utama(){ //gerbang utama suatu program
     int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9, nyawa;
     float nilai, point,score;
     char nama[50];
-    system("Color F5");
 	tampilanmenu :
 	        system("cls");
 	    	printf("\t\t_________________________________");
-            printf("\n\t\t         SELAMAT DATANG          ");
-            printf("\n\t\t               DI                ");
-            printf("\n\t\t            KUIS GAME            ");
-            printf("\n\t\t_________________________________"); 
+            printf("\n\t\t|         SELAMAT DATANG        |");
+            printf("\n\t\t|               DI              |");
+            printf("\n\t\t|            KUIS GAME          |");
+            printf("\n\t\t|_______________________________|"); 
 			printf("\n\t\t            UHUUYYYY             ");           
             printf("\n\t__________________________________________________");
             printf("\n\t          Klik S untuk memulai                    ");
@@ -396,7 +395,7 @@ void utama(){ //gerbang utama suatu program
 			                }
 			            case 5:
 			                printf("\n\n5. Apa yang dimaksud dengan sunnah dalam Islam, dan bagaimana pengaruhnya dalam kehidupan umat Muslim?");
-			                printf("\n\nA. Hukum wajib yang harus diikuti\tB. Tradisi yang ditinggalkan\nC. Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim\tD. Cerita rakyat yang tidak relevan");
+			                printf("\n\nA. Hukum wajib yang harus diikuti\t\t\t\t\t\t\t\tB. Tradisi yang ditinggalkan\nC. Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim\tD. Cerita rakyat yang tidak relevan");
 			                pilihan = timed_input(&jawab, 10, &waktusisa);
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
@@ -599,7 +598,7 @@ void utama(){ //gerbang utama suatu program
 			                }
 			            case 3:
 			                printf("\n\n3. Alat yang digunakan untuk mengukur arus listrik adalah?");
-			                printf("\nA. Voltmeter\t\tB. Ohmmeter\nC. Ammeter\t\tD. Multimeter");
+			                printf("\nA. Voltmeter\t\tB. Ohmmeter\nC. Amperemeter\t\tD. Multimeter");
 			                pilihan = timed_input(&jawab, 10, &waktusisa);
 			                if(pilihan && (jawab == 'c' || jawab == 'C')){
 			                    printf("\n\nBenar!!");
@@ -677,8 +676,8 @@ void utama(){ //gerbang utama suatu program
                 		switch(r6)
                 		{
                 		case 1:
-                			printf("\n\n1. Komponen apa yang digunakan untuk menyimpan muatan listrik?");
-						    printf("\nA. Resistor\tB. Kapasitor\nC. Induktor\tD. Transistor");
+                			printf("\n\n1. Apa yang dimaksud dengan dioda?");
+						    printf("\nA. Alat pengukur tegangan\t\tB. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah\nC. Alat untuk mengukur resistansi\tD. Sumber listrik");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'b' || jawab == 'B')) {
 						        printf("\n\nBenar!!");
@@ -708,7 +707,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 3 :
 							printf("\n\n3. Apa fungsi utama transistor dalam rangkaian elektronik?");
-						    printf("\n\nA. Mengukur tegangan\t\t\tB. Menghasilkan suara\nC. Memperkuat atau mengendalikan arus listrik\tD. Menghasilkan cahaya");
+						    printf("\n\nA. Mengukur tegangan\t\t\t\tB. Menghasilkan suara\nC. Memperkuat atau mengendalikan arus listrik\tD. Menghasilkan cahaya");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -723,7 +722,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 4 :
 							printf("\n\n4. Apa yang dimaksud dengan hambatan dalam elektronika?");
-						    printf("\n\nA. Kemampuan suatu material untuk menghantarkan arus listrik\t\tB. Kemampuan suatu material untuk mengisolasi arus listrik\nC. Ukuran panjang sebuah kabel\t\tD. Tegangan listrik dalam sirkuit");
+						    printf("\n\nA. Kemampuan untuk menghantarkan arus listrik\t\tB. Kemampuan untuk mengisolasi arus listrik\nC. Ukuran panjang sebuah kabel\t\t\t\tD. Tegangan listrik dalam sirkuit");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
@@ -804,7 +803,7 @@ void utama(){ //gerbang utama suatu program
                 		{
                 		case 1:
                 			printf("\n\n1. Siapa nama presiden ketiga Indonesia?");
-						    printf("\n\nA. Sukarno\tB. Soeharto\nC. BJ Habibie\t\tD. Abdurrahman Wahid");
+						    printf("\n\nA. Sukarno\t\tB. Soeharto\nC. BJ Habibie\t\tD. Abdurrahman Wahid");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -819,7 +818,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 2 :
 							printf("\n\n2. Apa nama planet terdekat dari matahari?");
-						    printf("\n\nA. Venus\tB. Mars\nC. Bumi\tD. Merkurius");
+						    printf("\n\nA. Venus\tB. Mars\nC. Bumi\t\tD. Merkurius");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'd' || jawab == 'D')) {
 						        printf("\n\nBenar!!");
@@ -849,7 +848,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 4 :
 							printf("\n\n4. Apa ibukota Indonesia?");
-						    printf("\n\nA. Surabaya\tB. Bandung\nC. Jakarta\tD. Medan");
+						    printf("\n\nA. Surabaya\tB. Bandung\nC. IKN\t\tD. Medan");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -911,8 +910,8 @@ void utama(){ //gerbang utama suatu program
                 		switch(r8)
                 		{
                 		case 1:
-                					printf("\n\n1. Siapa Nama Panjang Jendral Soedirman?");
-						    printf("\n\nA. Sultan Soedirman\tB. Raden Shaleh\nC. Raden Soedirman\tD. Sultan Hasanudin");
+                			printf("\n\n1. Siapa Nama Panjang Jendral Soedirman?");
+						    printf("\n\nA. Hanif Soedirman\tB. Ibrahim Madara\nC. Raden Soedirman\tD. Fidel Waluyo");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -926,10 +925,10 @@ void utama(){ //gerbang utama suatu program
                 				break;
 							}
 						case 2 :
-							printf("\n\n2. Ibukota Indonesia adalah?");
-						    printf("\nA. Jakarta\tB. Bandung\nC. Surabaya\tD. Medan");
+							printf("\n\n2. Kota yang dijuluki Kota Batik adalah Kota..?");
+						    printf("\n\nA. Tegal\tB. Semarang\nC. Jakarta\t\tD. Pekalongan");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'a' || jawab == 'A')) {
+							if (pilihan && (jawab == 'd' || jawab == 'D')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
@@ -941,10 +940,10 @@ void utama(){ //gerbang utama suatu program
 								break;
 							}
 						case 3 :
-							printf("\n\n3. Pulau terbesar di Indonesia adalah?");
-    							printf("\nA. Jawa\t\tB. Sumatra\nC. Kalimantan\tD. Sulawesi");
+							printf("\n\n3. Apa nama gunung tertinggi di dunia?");
+						    printf("\n\nA. Gunung Lawu\t\tB. Gunung Everest\nC. Gunung Kilimanjaro\tD. Gunung Jaya Wijaya");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
@@ -956,10 +955,10 @@ void utama(){ //gerbang utama suatu program
                 				break;
 							}
 						case 4 :
-							printf("\n\n4. Siapa presiden pertama Indonesia?");
-    							printf("\nA. Soekarno\tB. Suharto\nC. B.J. Habibie\tD. Megawati");
+							printf("\n\n4. Pulau terbesar di Indonesia adalah?");
+						    printf("\nA. Jawa\t\t\tB. Sumatra\nC. Kalimantan\t\tD. Sulawesi");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'a' || jawab == 'A')) {
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
@@ -972,7 +971,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 5 :
 							printf("\n\n5. Lagu kebangsaan Indonesia adalah?");
-    							printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
+						    printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
@@ -1036,7 +1035,7 @@ void utama(){ //gerbang utama suatu program
 							}
 						case 2 :
 							printf("\n\n2. Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?");
-						    printf("\n\nA. Haiku Matsuo\t\tB. Ryūnosuke Akutagawa\nC. Yasunari Kawabata\tD. Haruki Murakami");
+						    printf("\n\nA. Haiku Matsuo\t\tB. RyÅnosuke Akutagawa\nC. Yasunari Kawabata\tD. Haruki Murakami");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -1098,8 +1097,8 @@ void utama(){ //gerbang utama suatu program
 							}
 						}if (nyawa >= 3) {
 					system("cls");
-	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
-	                printf("Kembali ke menu utama...\n");
+	                printf("\n\nMaaf. Kesempatan kamu sudah habis. Kamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Silahkan kembali ke menu utama...\n");
 	                _getch();
 	                goto tampilanmenu;
             } 
@@ -1108,6 +1107,8 @@ void utama(){ //gerbang utama suatu program
                         system("cls");
                         nilai=(float)point*2;
                         printf("\n\t\t\tSelamat kamu mendapat %.2f poin\n\n\n", nilai);
+                        Sleep(500);
+                        printf("\n\t\t\t\tYEEEYYYYY\n\n\n");
                         goto terus;
 
                         terus :
@@ -1118,7 +1119,7 @@ void utama(){ //gerbang utama suatu program
         
 }else{
 	Sleep(200);
-	printf("\n\n\n\n\t\tTOLONG PENCET SESUAI PERINTAH!!!!");
+	printf("\n\n\n\t  WOYYYY PENCET SESUAI PERINTAH LAHHHH!!!!");
 	Sleep(2000);
 	goto tampilanmenu;
 }
@@ -1137,9 +1138,8 @@ void reset_score() {
     	for(int i=0;i<3;i++){
         	fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
         }
-        printf("Skor berhasil direset.");
-    }
-    fclose(file);
+        printf("\n\n\t\t   Skor berhasil direset.");
+    }fclose(file);
 }
 void hasiltertinggi() {
     FILE *file = fopen("score.txt", "r");
