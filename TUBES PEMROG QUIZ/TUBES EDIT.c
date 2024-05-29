@@ -911,8 +911,8 @@ int main(){ //gerbang utama suatu program
                 		switch(r8)
                 		{
                 		case 1:
-                			printf("\n\n1. Siapa Nama Panjang Jendral Soedirman?");
-						    printf("\n\nA. Hanif Soedirman\tB. Ibrahim Madara\nC. Raden Soedirman\tD. Fidel Waluyo");
+                					printf("\n\n1. Siapa Nama Panjang Jendral Soedirman?");
+						    printf("\n\nA. Sultan Soedirman\tB. Raden Shaleh\nC. Raden Soedirman\tD. Sultan Hasanudin");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
@@ -927,9 +927,9 @@ int main(){ //gerbang utama suatu program
 							}
 						case 2 :
 							printf("\n\n2. Ibukota Indonesia adalah?");
-						    printf("\n\nA. Venus\tB. Mars\nC. Bumi\t\tD. Merkurius");
+						    printf("\nA. Jakarta\tB. Bandung\nC. Surabaya\tD. Medan");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'd' || jawab == 'D')) {
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
@@ -941,10 +941,10 @@ int main(){ //gerbang utama suatu program
 								break;
 							}
 						case 3 :
-							printf("\n\n3. Apa nama gunung tertinggi di dunia?");
-						    printf("\n\nA. Gunung Lawu\t\tB. Gunung Everest\nC. Gunung Kilimanjaro\tD. Gunung Jaya Wijaya");
+							printf("\n\n3. Pulau terbesar di Indonesia adalah?");
+    							printf("\nA. Jawa\t\tB. Sumatra\nC. Kalimantan\tD. Sulawesi");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
@@ -956,10 +956,10 @@ int main(){ //gerbang utama suatu program
                 				break;
 							}
 						case 4 :
-							printf("\n\n4. Pulau terbesar di Indonesia adalah?");
-						    printf("\nA. Jawa\t\t\tB. Sumatra\nC. Kalimantan\t\tD. Sulawesi");
+							printf("\n\n4. Siapa presiden pertama Indonesia?");
+    							printf("\nA. Soekarno\tB. Suharto\nC. B.J. Habibie\tD. Megawati");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
-							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
 						        point += waktusisa;
 						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
@@ -972,7 +972,7 @@ int main(){ //gerbang utama suatu program
 							}
 						case 5 :
 							printf("\n\n5. Lagu kebangsaan Indonesia adalah?");
-						    printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
+    							printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
 						    pilihan = (timed_input(&jawab, 10, &waktusisa));
 							if (pilihan && (jawab == 'a' || jawab == 'A')) {
 						        printf("\n\nBenar!!");
