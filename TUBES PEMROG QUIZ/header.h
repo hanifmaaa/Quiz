@@ -111,7 +111,7 @@ void utama(){ //gerbang utama suatu program
                 soalmudahAgama :
                 	system("cls");
                 	point = 0;
-					nyawa = 0;                	
+			nyawa = 0;                	
                 	for(i=1;i<=5;i++){
                 		int pilihan;
                 		char jawab;
@@ -305,7 +305,7 @@ void utama(){ //gerbang utama suatu program
 		                    break;
 		                }
 		        }if (nyawa >= 3) {
-					system("cls");
+			system("cls");
 	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
 	                printf("Kembali ke menu utama...\n");
 	                _getch();
