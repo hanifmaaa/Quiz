@@ -265,11 +265,11 @@ void utama(){ //gerbang utama suatu program
 		                    printf("\n\nBenar!!");
 		                    point += waktusisa;
 		                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
-		                    nyawa++;getch();
+		                    getch();
 		                    break;
 		                } else {
 		                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-		                    getch();
+		                    nyawa++;getch();
 		                    break;
 		                }
 		            case 4:
@@ -386,11 +386,11 @@ void utama(){ //gerbang utama suatu program
 			                    printf("\n\nBenar!!");
 			                    point += waktusisa;
 			                    printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
-			                    nyawa++;getch();
+			                    getch();
 			                    break;
 			                } else {
 			                    printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
-			                    getch();
+			                    nyawa++;getch();
 			                    break;
 			                }
 			            case 5:
