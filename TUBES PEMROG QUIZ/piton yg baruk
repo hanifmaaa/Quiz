@@ -193,7 +193,7 @@ def pengetahuan_umum_menu():
         if pilihan == 'y':
             play_quiz(puQuestionshard)
 
-# Sample data for questions
+# dari siniii pertanyaan
 agamaQuestionsez = [
     Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
     Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
@@ -204,25 +204,25 @@ agamaQuestionsez = [
 
 agamaQuestionsmed = [
     Question("Apa itu suudzan", ["A.Berbuat buruk", "B.berkata buruk", "C.berprasangka buruk", "D.berkelakuan buruk"], 'C'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Qudrat dalam sifat wajib Allah artinya", ["A.Berkehendak", "B.kekal", "C.esa", "D.berkuasa"], 'D'),
+    Question("Al-Quran diturunkan ke bumi selama", ["A.22 tahun 2 bulan 12 hari", "B.22 tahun 2 bulan 20 hari","C.22 tahun 2 bulan 22 hari","D.22 tahun 20 bulan 2 hari"], 'C'),
+    Question("Mukjizat yang diberikan kepada Nabi Muhammad salah satunya adalah?", ["A.Al-Quran","B.Tidak hangus terbakar api","C.Dapat mengendalikan angin","D.Dapat berbicara dengan hewan"], 'A'),
+    Question("Puasa yang dilaksanakan setiap tanggal 13,14,15 adalah puasa", ["A.Syawal", "B.Arafah", "C.Ayyamul Bidh", "D.Senin Kamis"], 'C')
 ]
 agamaQuestionshard = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Apa yang dimaksud dengan konsep tauhid dalam Islam?", ["A.Percaya kepada banyak tuhan", "B.Percaya bahwa Allah adalah satu-satunya Tuhan", "C.Percaya pada reinkarnasi", "D.Percaya pada kekuatan alam"], 'B'),
+    Question("Jelaskan konsep qadar (takdir) dalam Islam", ["A.Keyakinan bahwa semua kejadian adalah hasil usaha manusia", "B.Keyakinan bahwa semua kejadian adalah kebetulan", "C.Keyakinan bahwa semua kejadian telah ditetapkan oleh Allah", "D.Keyakinan bahwa semua kejadian adalah hasil doa"], 'C'),
+    Question("Jelaskan arti dan pentingnya puasa Ramadan dalam agama Islam", ["A.Bulan untuk berlibur", "B.Bulan untuk menambah rezeki", "C.Bulan untuk menahan diri dari makan, minum, dan perbuatan buruk", "D.Bulan untuk beribadah tanpa pantangan"], 'C'),
+    Question("Bagaimana pandangan Islam tentang pernikahan dan keluarga?", ["A.Pernikahan tidak penting", "B.Keluarga bukanlah prioritas", "C.Pernikahan adalah ikatan suci dan keluarga adalah unit dasar masyarakat", "D.Pernikahan hanya untuk menghasilkan keturunan"], 'C'),
+    Question("Apa yang dimaksud dengan sunnah dalam Islam, dan bagaimana pengaruhnya dalam kehidupan umat Muslim?", ["A.Hukum wajib yang harus diikuti", "B.Tradisi yang ditinggalkan", "C.Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim", "D.Cerita rakyat yang tidak relevan"], 'C')
 ]
 
 elkaQuestionsez = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Warna apa yang mewakili nilai 5 pada kode warna resistor?", ["A.Coklat", "B.Hijau", "C.Merah", "D.Kuning"], 'B'),
+    Question("Berapakah nilai resistor dengan kode warna Merah, Ungu, Merah, Emas?", ["A.2700 ohm", "B.270 ohm", "C.27000 ohm", "D.270000 ohm"], 'A'),
+    Question("Mana yang termasuk ciri-ciri rangkaian seri?", ["A.Tegangan berbeda setiap resistor", "B.Arus total sama", "C.Resistor terhubung paralel", "D.Semua benar"], 'B'),
+    Question("Mana yang termasuk ciri-ciri rangkaian paralel?", ["A.Arus total sama", "B.Resistor terhubung seri", "C.Tegangan sama pada setiap resistor", "D.Tidak ada yang benar"], 'C'),
+    Question("Berapakah nilai resistor dengan kode warna Coklat, Hitam, Merah, Perak?", ["A.1.0 ohm", "B.100 ohm", "C.1000 ohm", "D.10 ohm"], 'A')
 ]
 elkaQuestionsmed = [
     Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
