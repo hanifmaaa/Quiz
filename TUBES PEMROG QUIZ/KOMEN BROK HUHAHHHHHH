@@ -649,3 +649,551 @@ mudahElka: // untuk soal mudah elektronika
 	                _getch();
 	                goto tampilanmenu;
             }
+    }
+				sulitElka ://elka sulit
+					system("cls");//bersihkan layar
+					tips();//tampilkan tips
+                	printf("\n\n\n\nKlik Y  untuk memulai !!");
+                	printf("\nKlik apapun untuk kembali ke menu!");
+                	pilihan = getch();//menunggu pemain menekan tombol
+                	if (pilihan == 'y' || pilihan == 'Y'){//loop untuk pilihan y/Y
+                    	goto soalsulitElka;//ke soalsulitelka
+                	}
+                	else {//loop untuk kondisi lain
+                    	goto tampilanmenu;//ke tampilan menu
+                }
+                soalsulitElka ://soal sulit elka
+                	system("cls");//bersihkan layar
+                	point = 0;//nilai poin
+                	nyawa = 0;//nilai nyawa
+                	for(i=1;i<=5;i++){//loop soal
+                	int pilihan;//deklarasi var
+			        char jawab;
+			        float waktusisa;
+                		system("cls");
+                		r6=i;
+                		switch(r6)
+                		{
+                		case 1://soal 1
+                			printf("\n\n1. Apa yang dimaksud dengan dioda?");//pertanyaan
+						    printf("\nA. Alat pengukur tegangan\t\tB. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah\nC. Alat untuk mengukur resistansi\tD. Sumber listrik");//pilihan jawaban
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));//waktu 10 detik
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {//loop jika memilih b/B
+						        printf("\n\nBenar!!");//output
+						        point += waktusisa;//perhitungan skor yang didapat
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);//output skor
+						        getch();//menunggu pemain menekan tombol
+						        break;//keluar dari loop
+						    } else {//loop untuk kondisi lain
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();//nilai nyawa bertambah
+                				break;//keluar dari loop
+							}
+						case 2 :// soal 2
+							printf("\n\n2. Komponen apa yang digunakan untuk menyimpan dan melepaskan muatan listrik dalam sebuah sirkuit elektronik?");//pertanyaaan
+						    printf("\n\nA. Resistor\tB. Dioda\nC. Kapasitor\tD. Transistor");// pilihan jawaban
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));//waktu 10 detik
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {//loop jika jawaban c/C
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {//loop jika kondisi selain diatas
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 3 ://soal 3
+							printf("\n\n3. Apa fungsi utama transistor dalam rangkaian elektronik?");//pertanyaan
+						    printf("\n\nA. Mengukur tegangan\t\t\t\tB. Menghasilkan suara\nC. Memperkuat atau mengendalikan arus listrik\tD. Menghasilkan cahaya");// pilihan jawaban
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {//loop jika memilih c/C
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {//loop untuk kondisi selain diatas
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 4 ://soal 4
+							printf("\n\n4. Apa yang dimaksud dengan hambatan dalam elektronika?");//pertanyaan
+						    printf("\n\nA. Kemampuan untuk menghantarkan arus listrik\t\tB. Kemampuan untuk mengisolasi arus listrik\nC. Ukuran panjang sebuah kabel\t\t\t\tD. Tegangan listrik dalam sirkuit");// pilihan jawaban
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {//loop jika memilih a/A
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {//loop jika kondisi selain diatas
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 5 :// soal 5
+							printf("\n\n5. Berapa banyak kaki (pin) yang biasanya dimiliki oleh transistor bipolar jenis NPN?");//pertanyaan
+						    printf("\n\nA. 2\tB. 3\nC. 4\tD. 5");// pilihan jawaban
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {//loop jika memilih b/B
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        goto nilai;
+						        break;
+						    } else {//loop untuk kondisi selain diatas
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								goto nilai;
+								break;
+							}
+						}if (nyawa >= 3) {// loop jika nilai nyawa lebih dari sama dengan 3
+					system("cls");//bersihkan layar
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();//menunggu pemain menekan tombol
+	                goto tampilanmenu;//ke tampilanmenu
+            } 
+					}
+				pengetahuanumum :
+					system("cls");//bersihkan layar
+					printf("\nPengetahuan Umum\n");//output di layar
+					printf("Pilih Kesulitan\n");
+					printf("\n\nE - Mudah");
+					printf("\n\nM - Sedang");
+					printf("\n\nH - Sulit");
+					pilihan = getch ();//menunggu pengguna menekan tombol di keyboard
+					if (pilihan == 'e' || pilihan == 'E'){//loop jika memilih e/E
+						goto mudahPu;
+					}else if (pilihan == 'm' || pilihan == 'M'){//loop jika memilih M/m
+						goto sedangPu;
+					}else if (pilihan == 'h' || pilihan == 'H'){//loop jika memilih h/H
+						goto sulitPu;
+					}else{//loop dengan kondisi selain diatas 
+						goto tampilanmenu;//ke tampilan menu
+					}
+				mudahPu :
+					system("cls");//bersihkan layar
+					tips();//tampilkan tips
+                	printf("\n\n\n\nKlik Y  untuk memulai !!");
+                	printf("\nKlik apapun untuk kembali ke menu!");
+                	pilihan = getch();
+                	if (pilihan == 'y' || pilihan == 'Y'){//loop jika memilih y/Y
+                    goto soalmudahPu;//ke soal mudah pu
+                	}
+                	else {//loop dengan kondisi lain
+                    goto tampilanmenu;
+                }
+			soalmudahPu ://soal mudah pu
+                	system("cls");//bersihkan layar
+                	point = 0;//nilai point
+                	nyawa = 0;//nilai nyawa
+                	for(i=1;i<=5;i++){//loop soal
+                	int pilihan;//deklarasi var
+			        char jawab;
+			        float waktusisa;
+                		system("cls");
+                		r7=i;
+                		switch(r7)
+                		{
+                		case 1://soal 1
+                			printf("\n\n1. Siapa nama presiden ketiga Indonesia?");
+						    printf("\n\nA. Sukarno\t\tB. Soeharto\nC. BJ Habibie\t\tD. Abdurrahman Wahid");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 2 :
+							printf("\n\n2. Apa nama planet terdekat dari matahari?");
+						    printf("\n\nA. Venus\tB. Mars\nC. Bumi\t\tD. Merkurius");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'd' || jawab == 'D')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 3 :
+							printf("\n\n3. Apa nama sungai terpanjang di dunia?");
+						    printf("\n\nA. Sungai Amazon\tB. Sungai Nil\nC. Sungai Yangtze\tD. Sungai Mississippi");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 4 :
+							printf("\n\n4. Apa ibukota Indonesia?");
+						    printf("\n\nA. Surabaya\tB. Bandung\nC. IKN\t\tD. Medan");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 5 :
+							printf("\n\n5. Berapakah 5 + 7?");
+						    printf("\n\nA. 10\t\tB. 11\nC. 12\t\tD. 13");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        goto nilai;
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								goto nilai;
+								break;
+							}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
+					}
+					sedangPu :
+					system("cls");
+					tips();
+                	printf("\n\n\n\nKlik Y  untuk memulai !!");
+                	printf("\nKlik apapun untuk kembali ke menu!");
+                	pilihan = getch();
+                	if (pilihan == 'y' || pilihan == 'Y'){
+                    goto soalsedangPu;
+                	}
+                	else {
+                    goto tampilanmenu;
+                }
+					soalsedangPu :
+                	system("cls");
+                	point = 0;nyawa = 0;
+                	for(i=1;i<=5;i++){
+                	int pilihan;
+			        char jawab;
+			        float waktusisa;
+                		system("cls");
+                		r8=i;
+                		switch(r8)
+                		{
+                		case 1:
+                			printf("\n\n1. Siapa Nama Panjang Jendral Soedirman?");
+						    printf("\n\nA. Hanif Soedirman\tB. Ibrahim Madara\nC. Raden Soedirman\tD. Fidel Waluyo");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 2 :
+							printf("\n\n2. Kota yang dijuluki Kota Batik adalah Kota..?");
+						    printf("\n\nA. Tegal\tB. Semarang\nC. Jakarta\t\tD. Pekalongan");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'd' || jawab == 'D')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 3 :
+							printf("\n\n3. Apa nama gunung tertinggi di dunia?");
+						    printf("\n\nA. Gunung Lawu\t\tB. Gunung Everest\nC. Gunung Kilimanjaro\tD. Gunung Jaya Wijaya");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 4 :
+							printf("\n\n4. Pulau terbesar di Indonesia adalah?");
+						    printf("\nA. Jawa\t\t\tB. Sumatra\nC. Kalimantan\t\tD. Sulawesi");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 5 :
+							printf("\n\n5. Lagu kebangsaan Indonesia adalah?");
+						    printf("\nA. Indonesia Raya\tB. Garuda Pancasila\nC. Halo-Halo Bandung\tD. Rayuan Pulau Kelapa");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        goto nilai;
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								goto nilai;
+								break;
+							}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
+					}
+					sulitPu :
+					system("cls");
+					tips();
+                	printf("\n\n\n\nKlik Y  untuk memulai !!");
+                	printf("\nKlik apapun untuk kembali ke menu!");
+                	pilihan = getch();
+                	if (pilihan == 'y' || pilihan == 'Y'){
+                    goto soalsulitPu;
+                	}
+                	else {
+                    goto tampilanmenu;
+                }
+					soalsulitPu :
+                	system("cls");
+                	point = 0;
+                	nyawa = 0;
+                	for(i=1;i<=5;i++){
+                	int pilihan;
+			        char jawab;
+			        float waktusisa;
+                		system("cls");
+                		r9=i;
+                		switch(r9)
+                		{
+                		case 1:
+                			printf("\n\n1. Pada tahun berapa Revolusi Industri dimulai di Inggris?");
+						    printf("\n\nA. 1600\t\tB. 1700\nC. 1800\t\tD. 1900");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 2 :
+							printf("\n\n2. Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?");
+						    printf("\n\nA. Haiku Matsuo\t\tB. RyÅnosuke Akutagawa\nC. Yasunari Kawabata\tD. Haruki Murakami");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 3 :
+							printf("\n\n3. Apa nama struktur geologi yang terbentuk akibat pergerakan lempeng tektonik yang saling bertumbukan?");
+						    printf("\n\nA. Gunung berapi\tB. Palung laut\nC. Pegunungan lipatan\tD. Pegunungan patahan");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'c' || jawab == 'C')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);\
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+                				nyawa++;getch();
+                				break;
+							}
+						case 4 :
+							printf("\n\n4. Apa nama penyakit yang disebabkan oleh kekurangan vitamin B12?");
+						     printf("\n\nA. Anemia pernisiosa\tB. Sklerosis lateral amiotrofik (ALS)\nC. Alzheimer\t\tD. Parkinson");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'a' || jawab == 'A')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								break;
+							}
+						case 5 :
+							printf("\n\n5. Siapa nama seniman terkenal dari Belanda yang terkenal dengan lukisannya yang menggambarkan kehidupan sehari-hari?");
+						    printf("\n\nA. Vincent van Gogh\tB. Rembrandt van Rijn\nC. Johannes Vermeer\tD. Frans Hals");
+						    pilihan = (timed_input(&jawab, 10, &waktusisa));
+							if (pilihan && (jawab == 'b' || jawab == 'B')) {
+						        printf("\n\nBenar!!");
+						        point += waktusisa;
+						        printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+						        getch();
+						        goto nilai;
+						        break;
+						    } else {
+						        printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+								nyawa++;getch();
+								goto nilai;
+								break;
+							}
+						}if (nyawa >= 3) {
+					system("cls");
+	                printf("\n\nMaaf. Kesempatan kamu sudah habis. Kamu telah menjawab salah lebih dari 3 kali.\n");
+	                printf("Silahkan kembali ke menu utama...\n");
+	                _getch();
+	                goto tampilanmenu;
+            } 
+					}
+                    nilai :
+                        system("cls");
+                        nilai=(float)point*2;
+                        printf("\n\t\t\tSelamat kamu mendapat %.2f poin\n\n\n", nilai);
+                        Sleep(500);
+                        printf("\n\t\t\t\tYEEEYYYYY\n\n\n");
+                        goto terus;
+
+                        terus :
+                            printf("\nKlik apapun untuk kembali ke menu");
+                            pilihan = getch();
+                            edit_score(nilai, nama);
+                            goto tampilanmenu;
+        
+}else{
+	Sleep(200);
+	printf("\n\n\n\t  WOYYYY PENCET SESUAI PERINTAH LAHHHH!!!!");
+	Sleep(2000);
+	goto tampilanmenu;
+}
+}
+typedef struct {
+    float score;
+    char name[50];
+} HighscoreEntry;
+
+void reset_score() {
+	HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
+    FILE *file = fopen("score.txt", "w");
+    if (file == NULL) {
+        printf("Gagal mereset skor.");
+    } else {
+    	for(int i=0;i<3;i++){
+        	fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
+        }
+        printf("\n\n\t\t   Skor berhasil direset.");
+    }fclose(file);
+}
+void hasiltertinggi() {
+    FILE *file = fopen("score.txt", "r");
+    if (file == NULL) {
+        printf("Belum ada skor yang tersimpan.\n");
+    } else {
+        HighscoreEntry entries[3];
+        int i;
+        printf("\n\n\t\t\t*************************************************************");
+        for (i = 0; i < 3; ++i) {
+            fscanf(file, "%f %s", &entries[i].score, entries[i].name);
+                printf("\n\t\t\t\t%d. %s \t\ttelah berhasil mendapat skor: %.2f", i + 1, entries[i].name, entries[i].score);
+        }printf("\n\n\t\t\t*************************************************************");
+    }fclose(file);
+}
+void tips(){
+    printf("\n\nBantuan :  ");
+    printf("\n-------------------------------------------------------------------------");
+    printf("\n>> Ada 5 soal yang harus kamu jawab");
+    printf("\n>> Di setiap soal akan terdapat timer selama 10 detik");
+    printf("\n>> Poin di setiap soal didapat dari seberapa cepat kamu menjawab");
+    printf("\n>> Poin yang kamu dapat dari setiap soal akan diakumulasikan di nilai akhir");
+    printf("\n>> Soal berbentuk pilihan ganda. Klik A, B ,C atau D untuk menjawab");
+    printf("\n>> Jika jawaban benar, kamu akan mendapatkan poin.");
+    printf("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin");
+    printf("\n\n\t\t\t!!!!!!!!!!!!! SEMANGATTT !!!!!!!!!!!!!");
+}
+void edit_score(float score, char nama[50]) {
+    HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
+    FILE *file = fopen("score.txt", "r");
+    if (file != NULL) {
+        int i;
+        for (i = 0; i < 3; ++i) {
+            fscanf(file, "%f %s", &entries[i].score, entries[i].name);
+        }fclose(file);
+    }
+    int i;
+    for (i = 0; i < 3; ++i) {
+        if (score > entries[i].score) {
+            int j;
+            for (j = 2; j > i; --j) {
+                entries[j] = entries[j - 1];
+            }
+            entries[i].score = score;
+            strcpy(entries[i].name, nama);
+            break;
+        }
+    }   
+    file = fopen("score.txt", "w");
+    if (file == NULL) {
+        printf("Gagal membuka file untuk menulis skor.\n");
+        return;
+    }
+    for (i = 0; i < 3; ++i) {
+        fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
+    }   
+    fclose(file);
+}
