@@ -48,66 +48,66 @@ int main() {
 
     int numQuestionsez = sizeof(agamaQuestionsez) / sizeof(agamaQuestionsez[0]);
     Question agamaQuestionsmed[] = {
-        {"Apa itu suudzan?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Apa itu suudzan?", {"A.Berbuat buruk", "B.Berkata buruk", "C.Berprasangka buruk", "D.Berkelakuan buruk"}, 'C'},
+        {"Qudrat dalam sifat wajib Allah artinya?", {"A.Berkehendak", "B.Kekal", "C.Esa", "D.Berkuasa"}, 'D'},
+        {"Al-Quran diturunkan ke bumi selama..", {"A.22 tahun 2 bulan 12 hari", "B.22 tahun 2 bulan 20 hari", "C.22 tahun 2 bulan 22 hari", "D.22 tahun 20 bulan 2 hari"}, 'C'},
+        {"Mukjizat yang diberikan kepada Nabi Muhammad salah satunya adalah...", {"A.Al-Quran", "B.Tidak hangus terbakar api", "C.Dapat mengendalikan angin", "D.Dapat berbicara dengan hewan"}, 'A'},
+        {"Puasa yang dilaksanakan setiap tanggal 13,14,15 adalah puasa..", {"A.Syawal", "B.Arafah", "C.Ayyamul Bidh", "D.Senin Kamis"}, 'C'}
     };
 
     int numQuestionsmed = sizeof(agamaQuestionsmed) / sizeof(agamaQuestionsmed[0]);
 
 	 Question agamaQuestionshard[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Apa yang dimaksud dengan konsep tauhid dalam Islam?", {"A. Percaya kepada banyak tuhan", "B. Percaya bahwa Allah adalah satu-satunya Tuhan", "C. Percaya pada reinkarnasi", "D. Percaya pada kekuatan alam"}, 'B'},
+        {"Jelaskan konsep qadar (takdir) dalam Islam", {"A. Keyakinan bahwa semua kejadian adalah hasil usaha manusia", "B. Keyakinan bahwa semua kejadian adalah kebetulan", "C. Keyakinan bahwa semua kejadian telah ditetapkan oleh Allah", "D. Keyakinan bahwa semua kejadian adalah hasil doa"}, 'C'},
+        {"Jelaskan arti dan pentingnya puasa Ramadan dalam agama Islam.", {"A. Bulan untuk berlibur", "B. Bulan untuk menambah rezeki", "C. Bulan untuk menahan diri dari makan, minum, dan perbuatan buruk", "D. Bulan untuk beribadah tanpa pantangan"}, 'C'},
+        {"Bagaimana pandangan Islam tentang pernikahan dan keluarga?", {"A. Pernikahan tidak penting", "B. Keluarga bukanlah prioritas","C. Pernikahan adalah ikatan suci dan keluarga adalah unit dasar masyarakat", "D. Pernikahan hanya untuk menghasilkan keturunan"}, 'C'},
+        {"Apa yang dimaksud dengan sunnah dalam Islam, dan bagaimana pengaruhnya dalam kehidupan umat Muslim?", {"A. Hukum wajib yang harus diikuti", "B. Tradisi yang ditinggalkan", "C. Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim", "D. Cerita rakyat yang tidak relevan"}, 'C'}
     };
     int numQuestionshard = sizeof(agamaQuestionshard) / sizeof(agamaQuestionshard[0]);
 Question elkaQuestionsez[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Warna apa yang mewakili nilai 5 pada kode warna resistor?", {"A. Coklat", "B. Hijau", "C. Merah", "D. Kuning"}, 'B'},
+        {"Berapakah nilai resistor dengan kode warna Merah, Ungu, Merah, Emas?", {"A. 2700 ohm", "B. 270 ohm", "C. 27000 ohm", "D. 270000 ohm"}, 'A'},
+        {"Mana yang termasuk ciri-ciri rangkaian seri?", {"A. Tegangan berbeda setiap resistor", "B. Arus total sama", "C. Resistor terhubung paralel", "D. Semua benar"}, 'B'},
+        {"Mana yang termasuk ciri-ciri rangkaian paralel?", {"A. Arus total sama", "B. Resistor terhubung seri", "C. Tegangan sama pada setiap resistor", "D. Tidak ada yang benar"}, 'C'},
+        {"Berapakah nilai resistor dengan kode warna Coklat, Hitam, Merah, Perak?", {"A. 1.0 ohm", "B. 100 ohm", "C. 1000 ohm", "D. 10 ohm"}, 'B'}
     };
 
     int numQuestionselez = sizeof(elkaQuestionsez) / sizeof(elkaQuestionsez[0]);
     Question elkaQuestionsmed[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Komponen apa yang digunakan untuk menyimpan muatan listrik?", {"A. Resistor", "B. Kapasitor", "C. Induktor", "D. Transistor"}, 'B'},
+        {"Hukum Ohm dinyatakan dengan persamaan?", {"A. V = I/R", "B. I = V/R", "C. P = VI", "D. V = IR"}, 'D'},
+        {"Alat yang digunakan untuk mengukur arus listrik adalah?", {"A. Voltmeter", "B. Ohmmeter", "C. Amperemeter", "D. Multimeter"}, 'C'},
+        {"Unit dari kapasitansi adalah?", {"A. Ohm", "B. Farad", "C. Henry", "D. Coulomb"}, 'B'},
+        {"Komponen apa yang digunakan untuk mengatur aliran arus dalam satu arah?", {"A. Resistor", "B. Kapasitor", "C. Dioda", "D. Induktor"}, 'C'}
     };
 
     int numQuestionselmed = sizeof(elkaQuestionsmed) / sizeof(elkaQuestionsmed[0]);
 
 	 Question elkaQuestionshard[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Apa yang dimaksud dengan dioda?", {"A. Alat pengukur tegangan", "B. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah", "C. Alat untuk mengukur resistansi", "D. Sumber listrik"}, 'B'},
+        {"Komponen apa yang digunakan untuk menyimpan dan melepaskan muatan listrik dalam sebuah sirkuit elektronik?", {"A. Resistor", "B. Dioda", "C. Kapasitor", "D. Transistor"}, 'C'},
+        {"Apa fungsi utama transistor dalam rangkaian elektronik?", {"A. Mengukur tegangan", "B. Menghasilkan suara", "C. Memperkuat atau mengendalikan arus listrik", "D. Menghasilkan cahaya"}, 'C'},
+        {"Apa yang dimaksud dengan hambatan dalam elektronika?", {"A. Kemampuan untuk menghantarkan arus listrik", "B. Kemampuan untuk mengisolasi arus listrik", "C. Ukuran panjang sebuah kabel", "D. Tegangan listrik dalam sirkuit"}, 'A'},
+        {"Berapa banyak kaki (pin) yang biasanya dimiliki oleh transistor bipolar jenis NPN?", {"A. 2", "B. 3", "C. 4", "D. 5"}, 'B'}
     };
     int numQuestionselhard = sizeof(elkaQuestionshard) / sizeof(elkaQuestionshard[0]);
     
     Question puQuestionsez[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Siapa nama presiden ketiga Indonesia?", {"A. Sukarno", "B. Soeharto", "C. BJ Habibie", "D. Abdurrahman Wahid"}, 'C'},
+        {"Apa nama planet terdekat dari matahari?", {"A. Venus", "B. Mars", "C. Bumi", "D. Merkurius"}, 'D'},
+        {"Apa nama sungai terpanjang di dunia?", {"A. Sungai Amazon", "B. Sungai Nil", "C. Sungai Yangtze", "D. Sungai Mississippi"}, 'B'},
+        {"Apa ibukota Indonesia?", {"A. Surabaya", "B. Bandung", "C. Jakarta", "D. Medan"}, 'C'},
+        {"Berapakah 5 + 7?", {"A. 10", "B. 11", "C. 12", "D. 13"}, 'C'}
     };
 
     int numQuestionspuez = sizeof(puQuestionsez) / sizeof(puQuestionsez[0]);
     Question puQuestionsmed[] = {
-        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
-        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
-        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
-        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
-        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+        {"Pada tahun berapa Revolusi Industri dimulai di Inggris?", {"A. 1600", "B. 1700", "C. 1800", "D. 1900"}, 'B'},
+        {"Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?", {"A. Haiku Matsuo", "B. RyÅnosuke Akutagawa", "C. Yasunari Kawabata", "D. Haruki Murakami"}, 'D'},
+        {"Apa nama struktur geologi yang terbentuk akibat pergerakan lempeng tektonik yang saling bertumbukan?", {"A. Gunung berapi", "B. Palung laut", "C. Pegunungan lipatan", "D. Pegunungan patahan"}, 'C'},
+        {"Apa nama penyakit yang disebabkan oleh kekurangan vitamin B12?", {"A. Anemia pernisiosa", "B. Sklerosis lateral amiotrofik (ALS)", "C. Alzheimer", "D. Parkinson"}, 'A'},
+        {"Siapa nama seniman terkenal dari Belanda yang terkenal dengan lukisannya yang menggambarkan kehidupan sehari-hari?", {"A. Vincent van Gogh", "B. Rembrandt van Rijn", "C. Johannes Vermeer", "D. Frans Hals"}, 'B'}
     };
 
     int numQuestionspumed = sizeof(puQuestionsmed) / sizeof(puQuestionsmed[0]);
