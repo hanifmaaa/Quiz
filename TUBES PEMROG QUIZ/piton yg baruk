@@ -225,40 +225,40 @@ elkaQuestionsez = [
     Question("Berapakah nilai resistor dengan kode warna Coklat, Hitam, Merah, Perak?", ["A.1.0 ohm", "B.100 ohm", "C.1000 ohm", "D.10 ohm"], 'A')
 ]
 elkaQuestionsmed = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Komponen apa yang digunakan untuk menyimpan muatan listrik?", ["A. Resistor", "B. Kapasitor", "C. Induktor", "D. Transistor"], 'B'),
+    Question("Hukum Ohm dinyatakan dengan persamaan?", ["A. V = I/R", "B. I = V/R", "C. P = VI", "D. V = IR"], 'D'),
+    Question("Alat yang digunakan untuk mengukur arus listrik adalah?", ["A. Voltmeter", "B. Ohmmeter", "C. Amperemeter", "D. Multimeter"], 'C'),
+    Question("Unit dari kapasitansi adalah?", ["A. Ohm", "B. Farad", "C. Henry", "D. Coulomb"], 'B'),
+    Question("Komponen apa yang digunakan untuk mengatur aliran arus dalam satu arah?", ["A. Resistor", "B. Kapasitor", "C. Dioda", "D. Induktor"], 'C')
 ]
 elkaQuestionshard = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Apa yang dimaksud dengan dioda?", ["A. Alat pengukur tegangan", "B. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah", "C. Alat untuk mengukur resistansi", "D. Sumber listrik"], 'B'),
+    Question("Komponen apa yang digunakan untuk menyimpan dan melepaskan muatan listrik dalam sebuah sirkuit elektronik?", ["A. Resistor", "B. Dioda", "C. Kapasitor", "D. Transistor"], 'C'),
+    Question("Apa fungsi utama transistor dalam rangkaian elektronik?", ["A. Mengukur tegangan", "B. Menghasilkan suara", "C. Memperkuat atau mengendalikan arus listrik", "D. Menghasilkan cahaya"], 'C'),
+    Question("Apa yang dimaksud dengan hambatan dalam elektronika?", ["A. Kemampuan untuk menghantarkan arus listrik", "B. Kemampuan untuk mengisolasi arus listrik", "C. Ukuran panjang sebuah kabel", "D. Tegangan listrik dalam sirkuit"], 'A'),
+    Question("Berapa banyak kaki (pin) yang biasanya dimiliki oleh transistor bipolar jenis NPN?", ["A. 2", "B. 3", "C. 4", "D. 5"], 'B')
 ]
 
 puQuestionsez = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Siapa nama presiden ketiga Indonesia?", ["A. Sukarno", "B. Soeharto", "C. BJ Habibie", "D. Abdurrahman Wahid"], 'C'),
+    Question("Apa nama planet terdekat dari matahari?", ["A. Venus", "B. Mars", "C. Bumi", "D. Merkurius"], 'D'),
+    Question("Apa nama sungai terpanjang di dunia?", ["A. Sungai Amazon", "B. Sungai Nil", "C. Sungai Yangtze", "D. Sungai Mississippi"], 'B'),
+    Question("Apa ibukota Indonesia?", ["A. Surabaya", "B. Bandung", "C. IKN", "D. Medan"], 'C'),
+    Question("Berapakah 5 + 7?", ["A. 10", "B. 11", "C. 12", "D. 13"], 'C')
 ]
 puQuestionsmed = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Siapa Nama Panjang Jendral Soedirman?", ["A. Muhammad Soedirman", "B. Raden Shaleh", "C. Raden Soedirman", "D. Raden Pati"], 'C'),
+    Question("Kota yang dijuluki Kota Batik adalah Kota..?", ["A. Tegal", "B. Semarang", "C. Jakarta", "D. Pekalongan"], 'D'),
+    Question("Apa nama gunung tertinggi di dunia?", ["A. Gunung Lawu", "B. Gunung Everest", "C. Gunung Kilimanjaro", "D. Gunung Jaya Wijaya"], 'B'),
+    Question("Pulau terbesar di Indonesia adalah?", ["A. Jawa", "B. Sumatra", "C. Kalimantan", "D. Sulawesi"], 'C'),
+    Question("Lagu kebangsaan Indonesia adalah?", ["A. Indonesia Raya", "B. Garuda Pancasila", "C. Halo-Halo Bandung", "D. Rayuan Pulau Kelapa"], 'A')
 ]
 puQuestionshard = [
-    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
-    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
-    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
-    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
-    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+    Question("Pada tahun berapa Revolusi Industri dimulai di Inggris?", ["A. 1600", "B. 1700", "C. 1800", "D. 1900"], 'B'),
+    Question("Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?", ["A. Haiku Matsuo", "B. Ryūnosuke Akutagawa", "C. Yasunari Kawabata", "D. Haruki Murakami"], 'C'),
+    Question("Apa nama struktur geologi yang terbentuk akibat pergerakan lempeng tektonik yang saling bertumbukan?", ["A. Gunung berapi", "B. Palung laut", "C. Pegunungan lipatan", "D. Pegunungan patahan"], 'C'),
+    Question("Apa nama penyakit yang disebabkan oleh kekurangan vitamin B12?", ["A. Anemia pernisiosa", "B. Sklerosis lateral amiotrofik (ALS)", "C. Alzheimer", "D. Parkinson"], 'A'),
+    Question("Siapa nama seniman terkenal dari Belanda yang terkenal dengan lukisannya yang menggambarkan kehidupan sehari-hari?", ["A. Vincent van Gogh", "B. Rembrandt van Rijn", "C. Johannes Vermeer", "D. Frans Hals"], 'B')
 ]
 
 if __name__ == "__main__":
