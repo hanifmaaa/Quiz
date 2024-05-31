@@ -1,0 +1,680 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <windows.h>
+#include <time.h>
+
+void tips();
+void hasiltertinggi();
+void editskor(float, char[]);
+void resetskor();
+
+typedef struct {
+    char question[256];
+    char options[4][64];
+    char correctOption;
+} Question;
+
+float timed_input(char *input, float timeout, float *waktusisa) {
+    float time_elapsed = 0;
+    while (time_elapsed < timeout) {
+        if (kbhit()) {
+            *input = getch();
+            *waktusisa = timeout - time_elapsed;
+            return 1;
+        }
+        Sleep(1000);
+        time_elapsed++;
+    }
+    *waktusisa = 0;
+    return 0;
+}
+
+int main() {
+    char pilihan, jawab;
+    int nyawa;
+    float point;
+    char nama[50];
+
+    Question agamaQuestionsez[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionsez = sizeof(agamaQuestionsez) / sizeof(agamaQuestionsez[0]);
+    Question agamaQuestionsmed[] = {
+        {"Apa itu suudzan?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionsmed = sizeof(agamaQuestionsmed) / sizeof(agamaQuestionsmed[0]);
+
+	 Question agamaQuestionshard[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+    int numQuestionshard = sizeof(agamaQuestionshard) / sizeof(agamaQuestionshard[0]);
+Question elkaQuestionsez[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionselez = sizeof(elkaQuestionsez) / sizeof(elkaQuestionsez[0]);
+    Question elkaQuestionsmed[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionselmed = sizeof(elkaQuestionsmed) / sizeof(elkaQuestionsmed[0]);
+
+	 Question elkaQuestionshard[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+    int numQuestionselhard = sizeof(elkaQuestionshard) / sizeof(elkaQuestionshard[0]);
+    
+    Question puQuestionsez[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionspuez = sizeof(puQuestionsez) / sizeof(puQuestionsez[0]);
+    Question puQuestionsmed[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+
+    int numQuestionspumed = sizeof(puQuestionsmed) / sizeof(puQuestionsmed[0]);
+
+	 Question puQuestionshard[] = {
+        {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
+        {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
+        {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
+        {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
+        {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
+    };
+    int numQuestionspuhard = sizeof(puQuestionshard) / sizeof(puQuestionshard[0]);
+    tampilanmenu:
+    system("cls");
+    printf("\t\t_________________________________");
+    printf("\n\t\t|         SELAMAT DATANG        |");
+    printf("\n\t\t|               DI              |");
+    printf("\n\t\t|            KUIS GAME          |");
+    printf("\n\t\t|_______________________________|");
+    printf("\n\t\t            UHUUYYYY             ");
+    printf("\n\t__________________________________________________");
+    printf("\n\t          Klik S untuk memulai                    ");
+    printf("\n\t          Klik V untuk melihat hasil tertinggi    ");
+    printf("\n\t          Klik H untuk bantuan                    ");
+    printf("\n\t          Klik Q untuk keluar                     ");
+    printf("\n\t          Klik R untuk mereset skor               ");
+    printf("\n\t _________________________________________________");
+
+    pilihan = getch();
+    if (pilihan == 'v' || pilihan == 'V') {
+        hasiltertinggi();
+        getch();
+        goto tampilanmenu;
+    } else if (pilihan == 'h' || pilihan == 'H') {
+        tips();
+        getch();
+        goto tampilanmenu;
+    } else if (pilihan == 'q' || pilihan == 'Q') {
+        exit(1);
+    } else if (pilihan == 'r' || pilihan == 'R') {
+        resetskor();
+        getch();
+        goto tampilanmenu;
+    } else if (pilihan == 's' || pilihan == 'S') {
+        system("cls");
+        printf("\n\n\n\n\n\t\tMasukkan Nama Anda : ");
+        gets(nama);
+        system("cls");
+        printf("------------------  Selamat datang %s di KUIS PENGETAHUAN --------------------------", nama);
+        printf("\n\nPilih kategori : ");
+        printf("\n\nA - Agama Islam");
+        printf("\n\nE - Elektronika");
+        printf("\n\nP - Pengetahuan Umum");
+        pilihan = getch();
+        if (pilihan == 'a' || pilihan == 'A') {
+            goto agama;
+        }else if (pilihan == 'e' || pilihan == 'E'){
+        	goto elektronika;
+		}else if (pilihan == 'p' || pilihan == 'P'){
+        	goto pengetahuanumum;
+		} else {
+            goto tampilanmenu;
+        }
+    }
+
+agama:
+    system("cls");
+    printf("\nAgama\n");
+    printf("\n\nE - Mudah");
+    printf("\n\nM - Sedang");
+    printf("\n\nH - Sulit");
+    pilihan = getch();
+    if (pilihan == 'e' || pilihan == 'E') {
+        goto mudahAgama;
+    } else if (pilihan == 'm' || pilihan == 'M'){
+    	goto sedangAgama;
+	}else if (pilihan == 'h' || pilihan == 'H'){
+    	goto sulitAgama;
+	}else {
+        goto tampilanmenu;
+    }
+
+mudahAgama:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalmudahAgama;
+	} else {
+        goto tampilanmenu;
+    }
+sedangAgama:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsedangAgama;
+	} else {
+        goto tampilanmenu;
+    }
+sulitAgama:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsulitAgama;
+	} else {
+        goto tampilanmenu;
+    }
+soalmudahAgama:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionsez; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", agamaQuestionsez[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", agamaQuestionsez[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == agamaQuestionsez[i].correctOption || jawab == tolower(agamaQuestionsez[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }
+soalsedangAgama:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionsmed; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", agamaQuestionsmed[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", agamaQuestionsmed[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == agamaQuestionsmed[i].correctOption || jawab == tolower(agamaQuestionsmed[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }  
+	soalsulitAgama:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionshard; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", agamaQuestionshard[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", agamaQuestionshard[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == agamaQuestionshard[i].correctOption || jawab == tolower(agamaQuestionshard[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }  
+elektronika:
+    system("cls");
+    printf("\nElektronika\n");
+    printf("\n\nE - Mudah");
+    printf("\n\nM - Sedang");
+    printf("\n\nH - Sulit");
+    pilihan = getch();
+    if (pilihan == 'e' || pilihan == 'E') {
+        goto mudahelka;
+    } else if (pilihan == 'm' || pilihan == 'M'){
+    	goto sedangelka;
+	}else if (pilihan == 'h' || pilihan == 'H'){
+    	goto sulitelka;
+	}else {
+        goto tampilanmenu;
+    }
+
+mudahelka:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalmudahelka;
+	} else {
+        goto tampilanmenu;
+    }
+sedangelka:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsedangelka;
+	} else {
+        goto tampilanmenu;
+    }
+sulitelka:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsulitelka;
+	} else {
+        goto tampilanmenu;
+    }
+soalmudahelka:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionselez; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", elkaQuestionsez[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", elkaQuestionsez[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == elkaQuestionsez[i].correctOption || jawab == tolower(elkaQuestionsez[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }
+soalsedangelka:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionselmed; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", elkaQuestionsmed[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", elkaQuestionsmed[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == elkaQuestionsmed[i].correctOption || jawab == tolower(elkaQuestionsmed[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }  
+soalsulitelka:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionselhard; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", elkaQuestionshard[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", elkaQuestionshard[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == elkaQuestionshard[i].correctOption || jawab == tolower(elkaQuestionshard[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }
+pengetahuanumum:
+    system("cls");
+    printf("\nPengetahuan Umum\n");
+    printf("\n\nE - Mudah");
+    printf("\n\nM - Sedang");
+    printf("\n\nH - Sulit");
+    pilihan = getch();
+    if (pilihan == 'e' || pilihan == 'E') {
+        goto mudahpu;
+    } else if (pilihan == 'm' || pilihan == 'M'){
+    	goto sedangpu;
+	}else if (pilihan == 'h' || pilihan == 'H'){
+    	goto sulitpu;
+	}else {
+        goto tampilanmenu;
+    }
+
+mudahpu:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalmudahpu;
+	} else {
+        goto tampilanmenu;
+    }
+sedangpu:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsedangpu;
+	} else {
+        goto tampilanmenu;
+    }
+sulitpu:
+    system("cls");
+    tips();
+    printf("\n\n\n\nKlik Y untuk memulai !!");
+    printf("\nKlik apapun untuk kembali ke menu!");
+    pilihan = getch();
+    if (pilihan == 'y' || pilihan == 'Y') {
+        goto soalsulitpu;
+	} else {
+        goto tampilanmenu;
+    }
+soalmudahpu:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionspuez; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", puQuestionsez[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", puQuestionsez[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == puQuestionsez[i].correctOption || jawab == tolower(puQuestionsez[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }
+soalsedangpu:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionspumed; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", puQuestionsmed[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", puQuestionsmed[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == puQuestionsmed[i].correctOption || jawab == tolower(puQuestionsmed[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }  
+soalsulitpu:
+    system("cls");
+    point = 0;
+    nyawa = 0;
+    for (int i = 0; i < numQuestionspuhard; i++) {
+        float waktusisa;
+        system("cls");
+        printf("\n\n%s", puQuestionshard[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("\n%s", puQuestionshard[i].options[j]);
+        }
+        int pilihan = timed_input(&jawab, 10, &waktusisa);
+        if (pilihan && (jawab == puQuestionshard[i].correctOption || jawab == tolower(puQuestionshard[i].correctOption))) {
+            printf("\n\nBenar!!");
+            point += waktusisa;
+            printf("\n\nPoin kamu adalah %.2f\n\n", waktusisa);
+            getch();
+        } else {
+            printf("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n");
+            nyawa++;
+            getch();
+        }
+        if (nyawa >= 3) {
+            system("cls");
+            printf("\n\nKamu telah menjawab salah lebih dari 3 kali.\n");
+            printf("Kembali ke menu utama...\n");
+            getch();
+            goto tampilanmenu;
+        }
+    }  
+nilai:
+    // Calculate and show the final score
+    printf("\n\nPoin Akhir Anda adalah %.2f\n", point);
+    editskor(point, nama);
+    getch();
+    goto tampilanmenu;
+
+    return 0;
+}
+typedef struct {
+    float score;
+    char name[50];
+} HighscoreEntry;
+
+void resetskor() {
+	HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
+    FILE *file = fopen("score.txt", "w");
+    if (file == NULL) {
+        printf("Gagal mereset skor.");
+    } else {
+    	for(int i=0;i<3;i++){
+        	fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
+        }
+        printf("\n\n\t\t   Skor berhasil direset.");
+    }fclose(file);
+}
+void hasiltertinggi() {
+    FILE *file = fopen("score.txt", "r");
+    if (file == NULL) {
+        printf("\n\n\t\tBelum ada skor yang tersimpan.\n");
+    } else {
+        HighscoreEntry entries[3];
+        int i;
+        printf("\n\n\t\t\t*************************************************************");
+        for (i = 0; i < 3; ++i) {
+            fscanf(file, "%f %s", &entries[i].score, entries[i].name);
+                printf("\n\t\t\t\t%d. %s \t\ttelah berhasil mendapat skor: %.2f", i + 1, entries[i].name, entries[i].score);
+        }printf("\n\n\t\t\t*************************************************************");
+    }fclose(file);
+}
+void editskor(float score, char nama[50]) {
+    HighscoreEntry entries[3] = {{0, "-"}, {0, "-"}, {0, "-"}};
+    FILE *file = fopen("score.txt", "r");
+    if (file != NULL) {
+        int i;
+        for (i = 0; i < 3; ++i) {
+            fscanf(file, "%f %s", &entries[i].score, entries[i].name);
+        }fclose(file);
+    }
+    int i;
+    for (i = 0; i < 3; ++i) {
+        if (score > entries[i].score) {
+            int j;
+            for (j = 2; j > i; --j) {
+                entries[j] = entries[j - 1];
+            }
+            entries[i].score = score;
+            strcpy(entries[i].name, nama);
+            break;
+        }
+    }   
+    file = fopen("score.txt", "w");
+    if (file == NULL) {
+        printf("Gagal membuka file untuk menulis skor.\n");
+        return;
+    }
+    for (i = 0; i < 3; ++i) {
+        fprintf(file, "%.2f %s\n", entries[i].score, entries[i].name);
+    }   
+    fclose(file);
+}
+void tips(){
+    printf("\n\nBantuan :  ");
+    printf("\n-------------------------------------------------------------------------");
+    printf("\n>> Ada 5 soal yang harus kamu jawab");
+    printf("\n>> Di setiap soal akan terdapat timer selama 10 detik");
+    printf("\n>> Poin di setiap soal didapat dari seberapa cepat kamu menjawab");
+    printf("\n>> Poin yang kamu dapat dari setiap soal akan diakumulasikan di nilai akhir");
+    printf("\n>> Soal berbentuk pilihan ganda. Klik A, B ,C atau D untuk menjawab");
+    printf("\n>> Jika jawaban benar, kamu akan mendapatkan poin.");
+    printf("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin");
+    printf("\n>> Kamu memiliki 3 kali kesempatan menjawab, jika sudah 3 kali salah maka kamu gagal");
+    printf("\n>> Namun, jika kamu salah ketiga kalinya di nomor 5, kamu akan tetap mendapatkan poin");
+    printf("\n\n\t\t\t!!!!!!!!!!! GOODLUCK BRE !!!!!!!!!!!!");
+}
