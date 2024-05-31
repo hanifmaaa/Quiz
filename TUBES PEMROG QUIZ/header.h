@@ -1,38 +1,38 @@
-#include <stdio.h> 
-#include <conio.h> 
-#include <stdlib.h> 
-#include <ctype.h> 
-#include <string.h> 
-#include <windows.h>
-#include <time.h> 
-void tips(); 
+#include <stdio.h> //library standar input dan output
+#include <conio.h> //library untuk menggunakan fungsi getch
+#include <stdlib.h> //library standar operasi standar pembanding dan konversi
+#include <ctype.h> //library untuk mengelompokkan dan memanipulasi karakter
+#include <string.h> //library untuk mengolah tipe data string
+#include <windows.h> //library untuk berkomunikasi dengan Windows API
+#include <time.h> //library untuk mengoperasikan waktu
+void tips(); //untuk mendeklarasikan prosedur tips
 void soalkuis(); //untuk mendeklarasikan prosedur soalkuis
 void hasiltertinggi(); //untuk mendeklarasikan prosedur hasiltertinggi
 void edit_score(float, char[]); //untuk mendeklarasikan prosedur edit_score berparameter float dan char
 void reset_score(); // untuk mendeklarasikan prosedur reset_score
 
-float timed_input(char *input, float timeout, float *waktusisa) {
-    float time_elapsed = 0;
-    while (time_elapsed < timeout) {
+float timed_input(char *input, float timeout, float *waktusisa) { //fungsi waktu pada setiap soal
+    float time_elapsed = 0; //deklarasi time_elapsed bertipe data float
+    while (time_elapsed < timeout) { //perulangan while ketika time_elapsed kurang dari timeout
         if (kbhit()) {
-            *input = getch();
-            *waktusisa = timeout - time_elapsed;
+            *input = getch(); //pointer input
+            *waktusisa = timeout - time_elapsed; //pointer waktusisa yang digunakan memberikan nilai setiap soal
             return 1;
         }
         Sleep(1000);
         time_elapsed++;
     }
-    *waktusisa = 0;
+    *waktusisa = 0; //nilai awal waktusisa
     return 0;
 }  
 void utama(){ //gerbang utama suatu program
-    char pilihan, agama, elektronika, pengetahuanumum, waktusisa;
-    int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9, nyawa;
-    float nilai, point,score;
+    char pilihan, agama, elektronika, pengetahuanumum, waktusisa; //deklarasi tipe data char
+    int r1,i,n,r2,r3,r4,r5,r6,r7,r8,r9, nyawa; //deklarasi tipe data integer
+    float nilai, point,score; //deklarasi tipe data float
     char nama[50];
-	tampilanmenu :
-	        system("cls");
-	    	printf("\t\t_________________________________");
+	tampilanmenu : //fungsi menu awal atau menu utama
+	        system("cls"); //digunakan agar tampilan sebelumnya dihapus oleh sistem
+	    	printf("\t\t_________________________________"); //tampilan menu utama
             printf("\n\t\t|         SELAMAT DATANG        |");
             printf("\n\t\t|               DI              |");
             printf("\n\t\t|            KUIS GAME          |");
@@ -46,22 +46,22 @@ void utama(){ //gerbang utama suatu program
             printf("\n\t          Klik R untuk mereset skor               ");
             printf("\n\t _________________________________________________");
 
-            pilihan = getch();
-            if (pilihan == 'v' || pilihan == 'V'){
-                hasiltertinggi();
+            pilihan = getch(); //fungsi pilihan
+            if (pilihan == 'v' || pilihan == 'V'){ //kondisi saat menekan v
+                hasiltertinggi(); //prosedur highscore
+                getch(); 
+                goto tampilanmenu; //beralih ke menu utama
+            }else if (pilihan == 'h' || pilihan == 'H'){ //kondisi saat menekan h
+                tips(); //memanggil prosedur tips
                 getch();
                 goto tampilanmenu;
-            }else if (pilihan == 'h' || pilihan == 'H'){
-                tips();
-                getch();
-                goto tampilanmenu;
-            }else if (pilihan == 'q' || pilihan == 'Q'){
-                exit(1);
-            }else if (pilihan == 'r' || pilihan == 'R'){
-        		reset_score();
+            }else if (pilihan == 'q' || pilihan == 'Q'){ //kondisi saat menekan q
+                exit(1); //kembali ke halaman awal
+            }else if (pilihan == 'r' || pilihan == 'R'){ //kondisi saat menekan r
+        		reset_score(); //memanggil prosedur reset skor
         		getch();
         		goto tampilanmenu;
-			}else if (pilihan == 's' || pilihan == 'S'){
+			}else if (pilihan == 's' || pilihan == 'S'){ //kondisi saat menekan s
                 system("cls");
                 printf("\n\n\n\n\n\t\tMasukkan Nama Anda : ");
                 gets(nama);
@@ -72,12 +72,12 @@ void utama(){ //gerbang utama suatu program
                 printf("\n\nE - Elektronika");
 				printf("\n\nP - Pengetahuan Umum");
             	pilihan = getch();
-            	if (pilihan == 'a' || pilihan == 'A'){
-            		goto agama;
-            	}else if (pilihan == 'e' || pilihan == 'E'){
-            		goto elektronika;
-				}else if (pilihan == 'p' || pilihan == 'P'){
-					goto pengetahuanumum;
+            	if (pilihan == 'a' || pilihan == 'A'){ //kondisi saat memilih a
+            		goto agama; //menuju ke halaman soal agama
+            	}else if (pilihan == 'e' || pilihan == 'E'){ // kondisi saat memilih e
+            		goto elektronika; //beralih ke halaman soal elektronika
+				}else if (pilihan == 'p' || pilihan == 'P'){ //kondisi saat menekan p
+					goto pengetahuanumum; //beralih ke halaman soal pengetahuan umum
 				}else {
 					goto tampilanmenu;
 				}
