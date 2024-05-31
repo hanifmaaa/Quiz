@@ -1,0 +1,308 @@
+import time
+import os
+import msvcrt  # for Windows-based systems
+import json
+
+class Question:
+    def __init__(self, question, options, correctOption):
+        self.question = question
+        self.options = options
+        self.correctOption = correctOption
+
+def tips():
+    print("\n\nBantuan :  ")
+    print("\n-------------------------------------------------------------------------")
+    print("\n>> Ada 5 soal yang harus kamu jawab")
+    print("\n>> Di setiap soal akan terdapat timer selama 10 detik")
+    print("\n>> Poin di setiap soal didapat dari seberapa cepat kamu menjawab")
+    print("\n>> Poin yang kamu dapat dari setiap soal akan diakumulasikan di nilai akhir")
+    print("\n>> Soal berbentuk pilihan ganda. Klik A, B ,C atau D untuk menjawab")
+    print("\n>> Jika jawaban benar, kamu akan mendapatkan poin.")
+    print("\n>> Jika jawaban salah, kamu tidak akan mendapatkan poin")
+    print("\n\n\t\t\t!!!!!!!!!!!!! SEMANGATTT !!!!!!!!!!!!!")
+
+def load_high_scores():
+    if os.path.exists('high_scores.json'):
+        with open('high_scores.json', 'r') as file:
+            return json.load(file)
+    return []
+
+def save_high_scores(high_scores):
+    with open('high_scores.json', 'w') as file:
+        json.dump(high_scores, file)
+
+def update_high_scores(point, nama):
+    high_scores = load_high_scores()
+    high_scores.append({'name': nama, 'score': point})
+    high_scores = sorted(high_scores, key=lambda x: x['score'], reverse=True)[:3]
+    save_high_scores(high_scores)
+    return high_scores
+
+def display_high_scores():
+    high_scores = load_high_scores()
+    print("\n\nHasil Tertinggi:")
+    for idx, score in enumerate(high_scores, start=1):
+        print(f"{idx}. {score['name']} - {score['score']}")
+
+def resetskor():
+    save_high_scores([])
+    print("Skor telah direset.")
+
+def timed_input(timeout):
+    start_time = time.time()
+    while True:
+        if msvcrt.kbhit():
+            input_char = msvcrt.getch().decode('utf-8')
+            time_elapsed = time.time() - start_time
+            waktusisa = timeout - time_elapsed
+            return input_char, waktusisa
+        time.sleep(1)
+        time_elapsed = time.time() - start_time
+        if time_elapsed >= timeout:
+            waktusisa = 0
+            return None, waktusisa
+
+def display_main_menu():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("\t\t_________________________________")
+    print("\n\t\t|         SELAMAT DATANG        |")
+    print("\n\t\t|               DI              |")
+    print("\n\t\t|            KUIS GAME          |")
+    print("\n\t\t|_______________________________|")
+    print("\n\t\t            UHUUYYYY             ")
+    print("\n\t__________________________________________________")
+    print("\n\t          Klik S untuk memulai                    ")
+    print("\n\t          Klik V untuk melihat hasil tertinggi    ")
+    print("\n\t          Klik H untuk bantuan                    ")
+    print("\n\t          Klik Q untuk keluar                     ")
+    print("\n\t          Klik R untuk mereset skor               ")
+    print("\n\t _________________________________________________")
+
+def display_category_menu(nama):
+    os.system("cls" if os.name == "nt" else "clear")
+    print(f"------------------  Selamat datang {nama} di KUIS PENGETAHUAN --------------------------")
+    print("\n\nPilih kategori : ")
+    print("\n\nA - Agama Islam")
+    print("\n\nE - Elektronika")
+    print("\n\nP - Pengetahuan Umum")
+
+def display_difficulty_menu():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("\n\nE - Mudah")
+    print("\n\nM - Sedang")
+    print("\n\nH - Sulit")
+
+def play_quiz(questions, nama):
+    point = 0
+    nyawa = 0
+    for i in range(len(questions)):
+        waktusisa = 0
+        os.system("cls" if os.name == "nt" else "clear")
+        print("\n\n", questions[i].question)
+        for j in range(4):
+            print("\n", questions[i].options[j])
+        input_char, waktusisa = timed_input(10)
+        if input_char and (input_char.upper() == questions[i].correctOption or input_char.lower() == questions[i].correctOption.lower()):
+            print("\n\nBenar!!")
+            current_points = max(0, 100 - (100 - waktusisa))
+            point += current_points
+            print(f"\n\nPoin yang diperoleh: {current_points:.2f}")
+            print(f"\n\nTotal Poin kamu adalah: {point:.2f}")
+            input()
+        else:
+            print("\n\nUpss!!!Kamu tidak mendapatkan poin...\n\n")
+            nyawa += 1
+            input()
+        if nyawa >= 3:
+            os.system("cls" if os.name == "nt" else "clear")
+            print("\n\nKamu telah menjawab salah lebih dari 3 kali.\n")
+            print("Kembali ke menu utama...\n")
+            input()
+            break
+
+    os.system("cls" if os.name == "nt" else "clear")
+    print(f"\n\nNama: {nama}\nTotal Poin: {point}")
+    high_scores = update_high_scores(point, nama)
+    if any(score['name'] == nama and score['score'] == point for score in high_scores):
+        print("\nSelamat kamu menempati skor tertinggi!")
+    print("\nKembali ke menu utama...")
+    input()
+
+def main():
+    while True:
+        display_main_menu()
+        pilihan = input().lower()
+        if pilihan == 'v':
+            display_high_scores()
+            input()
+        elif pilihan == 'h':
+            tips()
+            input()
+        elif pilihan == 'q':
+            exit(1)
+        elif pilihan == 'r':
+            resetskor()
+            input()
+        elif pilihan == 's':
+            os.system("cls" if os.name == "nt" else "clear")
+            print("\n\n\n\n\n\t\tMasukkan Nama Anda : ")
+            nama = input()
+            display_category_menu(nama)
+            pilihan = input().lower()
+            if pilihan == 'a':
+                agama_menu(nama)
+            elif pilihan == 'e':
+                elektronika_menu(nama)
+            elif pilihan == 'p':
+                pengetahuan_umum_menu(nama)
+
+def agama_menu(nama):
+    display_difficulty_menu()
+    pilihan = input().lower()
+    if pilihan == 'e':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(agamaQuestionsez, nama)
+    elif pilihan == 'm':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(agamaQuestionsmed, nama)
+    elif pilihan == 'h':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(agamaQuestionshard, nama)
+
+def elektronika_menu(nama):
+    display_difficulty_menu()
+    pilihan = input().lower()
+    if pilihan == 'e':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(elkaQuestionsez, nama)
+    elif pilihan == 'm':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(elkaQuestionsmed, nama)
+    elif pilihan == 'h':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(elkaQuestionshard, nama)
+
+def pengetahuan_umum_menu(nama):
+    display_difficulty_menu()
+    pilihan = input().lower()
+    if pilihan == 'e':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(puQuestionsez, nama)
+    elif pilihan == 'm':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(puQuestionsmed, nama)
+    elif pilihan == 'h':
+        tips()
+        print("\n\n\n\nKlik Y untuk memulai !!")
+        print("Klik apapun untuk kembali ke menu!")
+        pilihan = input().lower()
+        if pilihan == 'y':
+            play_quiz(puQuestionshard, nama)
+
+# dr sini
+agamaQuestionsez = [
+    Question("Rukun Islam ada berapa?", ["A.2", "B.3", "C.8", "D.5"], 'D'),
+    Question("Ada berapa sifat wajib Allah?", ["A.20", "B.18", "C.5", "D.12"], 'A'),
+    Question("Nabi dan Rasul yang terakhir adalah..", ["A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"], 'C'),
+    Question("Ada berapa surat dalam Al-Quran?", ["A.118", "B.114", "C.112", "D.120"], 'B'),
+    Question("Rukun iman yang terakhir adalah iman kepada...", ["A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"], 'A')
+]
+
+agamaQuestionsmed = [
+   
+    Question("Qudrat dalam sifat wajib Allah artinya", ["A.Berkehendak", "B.kekal", "C.esa", "D.berkuasa"], 'D'),
+    Question("Al-Quran diturunkan ke bumi selama", ["A.22 tahun 2 bulan 12 hari", "B.22 tahun 2 bulan 20 hari","C.22 tahun 2 bulan 22 hari","D.22 tahun 20 bulan 2 hari"], 'C'),
+    Question("Mukjizat yang diberikan kepada Nabi Muhammad salah satunya adalah?", ["A.Al-Quran","B.Tidak hangus terbakar api","C.Dapat mengendalikan angin","D.Dapat berbicara dengan hewan"], 'A'),
+    Question("Puasa yang dilaksanakan setiap tanggal 13,14,15 adalah puasa", ["A.Syawal", "B.Arafah", "C.Ayyamul Bidh", "D.Senin Kamis"], 'C')
+]
+
+agamaQuestionshard = [
+    Question("Apa yang dimaksud dengan konsep tauhid dalam Islam?", ["A.Percaya kepada banyak tuhan", "B.Percaya bahwa Allah adalah satu-satunya Tuhan", "C.Percaya pada reinkarnasi", "D.Percaya pada kekuatan alam"], 'B'),
+    Question("Jelaskan konsep qadar (takdir) dalam Islam", ["A.Keyakinan bahwa semua kejadian adalah hasil usaha manusia", "B.Keyakinan bahwa semua kejadian adalah kebetulan", "C.Keyakinan bahwa semua kejadian telah ditetapkan oleh Allah", "D.Keyakinan bahwa semua kejadian adalah hasil doa"], 'C'),
+    Question("Jelaskan arti dan pentingnya puasa Ramadan dalam agama Islam", ["A.Bulan untuk berlibur", "B.Bulan untuk menambah rezeki", "C.Bulan untuk menahan diri dari makan, minum, dan perbuatan buruk", "D.Bulan untuk beribadah tanpa pantangan"], 'C'),
+    Question("Bagaimana pandangan Islam tentang pernikahan dan keluarga?", ["A.Pernikahan tidak penting", "B.Keluarga bukanlah prioritas", "C.Pernikahan adalah ikatan suci dan keluarga adalah unit dasar masyarakat", "D.Pernikahan hanya untuk menghasilkan keturunan"], 'C'),
+    Question("Apa yang dimaksud dengan sunnah dalam Islam, dan bagaimana pengaruhnya dalam kehidupan umat Muslim?", ["A.Hukum wajib yang harus diikuti", "B.Tradisi yang ditinggalkan", "C.Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim", "D.Cerita rakyat yang tidak relevan"], 'C')
+]
+
+elkaQuestionsez = [
+    Question("Warna apa yang mewakili nilai 5 pada kode warna resistor?", ["A.Coklat", "B.Hijau", "C.Merah", "D.Kuning"], 'B'),
+    Question("Berapakah nilai resistor dengan kode warna Merah, Ungu, Merah, Emas?", ["A.2700 ohm", "B.270 ohm", "C.27000 ohm", "D.270000 ohm"], 'A'),
+    Question("Mana yang termasuk ciri-ciri rangkaian seri?", ["A.Tegangan berbeda setiap resistor", "B.Arus total sama", "C.Resistor terhubung paralel", "D.Semua benar"], 'B'),
+    Question("Mana yang termasuk ciri-ciri rangkaian paralel?", ["A.Arus total sama", "B.Resistor terhubung seri", "C.Tegangan sama pada setiap resistor", "D.Tidak ada yang benar"], 'C'),
+    Question("Berapakah nilai resistor dengan kode warna Coklat, Hitam, Merah, Perak?", ["A.1.0 ohm", "B.100 ohm", "C.1000 ohm", "D.10 ohm"], 'A')
+]
+
+elkaQuestionsmed = [
+    Question("Komponen apa yang digunakan untuk menyimpan muatan listrik?", ["A. Resistor", "B. Kapasitor", "C. Induktor", "D. Transistor"], 'B'),
+    Question("Hukum Ohm dinyatakan dengan persamaan?", ["A. V = I/R", "B. I = V/R", "C. P = VI", "D. V = IR"], 'D'),
+    Question("Alat yang digunakan untuk mengukur arus listrik adalah?", ["A. Voltmeter", "B. Ohmmeter", "C. Amperemeter", "D. Multimeter"], 'C'),
+    Question("Unit dari kapasitansi adalah?", ["A. Ohm", "B. Farad", "C. Henry", "D. Coulomb"], 'B'),
+    Question("Komponen apa yang digunakan untuk mengatur aliran arus dalam satu arah?", ["A. Resistor", "B. Kapasitor", "C. Dioda", "D. Induktor"], 'C')
+]
+
+elkaQuestionshard = [
+    Question("Apa yang dimaksud dengan dioda?", ["A. Alat pengukur tegangan", "B. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah", "C. Alat untuk mengukur resistansi", "D. Sumber listrik"], 'B'),
+    Question("Komponen apa yang digunakan untuk menyimpan dan melepaskan muatan listrik dalam sebuah sirkuit elektronik?", ["A. Resistor", "B. Dioda", "C. Kapasitor", "D. Transistor"], 'C'),
+    Question("Apa fungsi utama transistor dalam rangkaian elektronik?", ["A. Mengukur tegangan", "B. Menghasilkan suara", "C. Memperkuat atau mengendalikan arus listrik", "D. Menghasilkan cahaya"], 'C'),
+    Question("Apa yang dimaksud dengan hambatan dalam elektronika?", ["A. Kemampuan untuk menghantarkan arus listrik", "B. Kemampuan untuk mengisolasi arus listrik", "C. Ukuran panjang sebuah kabel", "D. Tegangan listrik dalam sirkuit"], 'A'),
+    Question("Berapa banyak kaki (pin) yang biasanya dimiliki oleh transistor bipolar jenis NPN?", ["A. 2", "B. 3", "C. 4", "D. 5"], 'B')
+]
+
+
+puQuestionsez = [
+    Question("Siapa nama presiden ketiga Indonesia?", ["A. Sukarno", "B. Soeharto", "C. BJ Habibie", "D. Abdurrahman Wahid"], 'C'),
+    Question("Apa nama planet terdekat dari matahari?", ["A. Venus", "B. Mars", "C. Bumi", "D. Merkurius"], 'D'),
+    Question("Apa nama sungai terpanjang di dunia?", ["A. Sungai Amazon", "B. Sungai Nil", "C. Sungai Yangtze", "D. Sungai Mississippi"], 'B'),
+    Question("Apa ibukota Indonesia?", ["A. Surabaya", "B. Bandung", "C. IKN", "D. Medan"], 'C'),
+    Question("Berapakah 5 + 7?", ["A. 10", "B. 11", "C. 12", "D. 13"], 'C')
+]
+
+puQuestionsmed = [
+    Question("Siapa Nama Panjang Jendral Soedirman?", ["A. Muhammad Soedirman", "B. Raden Shaleh", "C. Raden Soedirman", "D. Raden Pati"], 'C'),
+    Question("Kota yang dijuluki Kota Batik adalah Kota..?", ["A. Tegal", "B. Semarang", "C. Jakarta", "D. Pekalongan"], 'D'),
+    Question("Apa nama gunung tertinggi di dunia?", ["A. Gunung Lawu", "B. Gunung Everest", "C. Gunung Kilimanjaro", "D. Gunung Jaya Wijaya"], 'B'),
+    Question("Pulau terbesar di Indonesia adalah?", ["A. Jawa", "B. Sumatra", "C. Kalimantan", "D. Sulawesi"], 'C'),
+    Question("Lagu kebangsaan Indonesia adalah?", ["A. Indonesia Raya", "B. Garuda Pancasila", "C. Halo-Halo Bandung", "D. Rayuan Pulau Kelapa"], 'A')
+]
+puQuestionshard = [
+    Question("Pada tahun berapa Revolusi Industri dimulai di Inggris?", ["A. 1600", "B. 1700", "C. 1800", "D. 1900"], 'B'),
+    Question("Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?", ["A. Haiku Matsuo", "B. Ryūnosuke Akutagawa", "C. Yasunari Kawabata", "D. Haruki Murakami"], 'C'),
+    Question("Apa nama struktur geologi yang terbentuk akibat pergerakan lempeng tektonik yang saling bertumbukan?", ["A. Gunung berapi", "B. Palung laut", "C. Pegunungan lipatan", "D. Pegunungan patahan"], 'C'),
+    Question("Apa nama penyakit yang disebabkan oleh kekurangan vitamin B12?", ["A. Anemia pernisiosa", "B. Sklerosis lateral amiotrofik (ALS)", "C. Alzheimer", "D. Parkinson"], 'A'),
+    Question("Siapa nama seniman terkenal dari Belanda yang terkenal dengan lukisannya yang menggambarkan kehidupan sehari-hari?", ["A. Vincent van Gogh", "B. Rembrandt van Rijn", "C. Johannes Vermeer", "D. Frans Hals"], 'B')
+]
+
+if __name__ == "__main__":
+    main()
