@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <time.h>
 
-void tips();
+void help();
 void hasiltertinggi();
 void resetskor();
 
@@ -30,7 +30,6 @@ float timed_input(char *input, float timeout, float *waktusisa) {
     *waktusisa = 0;
     return 0;
 }
-
 void utama() {
     char pilihan, jawab;
     int nyawa;
@@ -98,16 +97,15 @@ void utama() {
     {"Apa ibukota Indonesia?", {"A. Surabaya", "B. Bandung", "C. IKN", "D. Medan"}, 'C'},
     {"Berapakah 5 + 7?", {"A. 10", "B. 11", "C. 12", "D. 13"}, 'C'}
     };
-
     int deretsoalpuez = sizeof(soalpuez) / sizeof(soalpuez[0]);
-    Pertanyaan soalpumed[] = {
+    
+	Pertanyaan soalpumed[] = {
     {"Siapa Nama Panjang Jendral Soedirman?", {"A. Muhammad Soedirman", "B. Raden Shaleh", "C. Raden Soedirman", "D. Raden Pati"}, 'C'},
     {"Kota yang dijuluki Kota Batik adalah Kota..?", {"A. Tegal", "B. Semarang", "C. Jakarta", "D. Pekalongan"}, 'D'},
     {"Apa nama gunung tertinggi di dunia?", {"A. Gunung Lawu", "B. Gunung Everest", "C. Gunung Kilimanjaro", "D. Gunung Jaya Wijaya"}, 'B'},
     {"Pulau terbesar di Indonesia adalah?", {"A. Jawa", "B. Sumatra", "C. Kalimantan", "D. Sulawesi"}, 'C'},
     {"Lagu kebangsaan Indonesia adalah?", {"A. Indonesia Raya", "B. Garuda Pancasila", "C. Halo-Halo Bandung", "D. Rayuan Pulau Kelapa"}, 'A'}
     };
-
     int deretsoalpumed = sizeof(soalpumed) / sizeof(soalpumed[0]);
 
 	Pertanyaan soalpuhard[] = {
@@ -133,14 +131,14 @@ void utama() {
     printf("\n\t          Klik Q untuk keluar                     ");
     printf("\n\t          Klik R untuk mereset skor               ");
     printf("\n\t _________________________________________________");
-
+    
     pilihan = getch();
     if (pilihan == 'v' || pilihan == 'V') {
         hasiltertinggi();
         getch();
         goto tampilanmenu;
     } else if (pilihan == 'h' || pilihan == 'H') {
-        tips();
+        help();
         getch();
         goto tampilanmenu;
     } else if (pilihan == 'q' || pilihan == 'Q') {
@@ -170,7 +168,6 @@ void utama() {
             goto tampilanmenu;
         }
     }
-
 agama:
     system("cls");
     printf("\nAgama\n");
@@ -187,10 +184,9 @@ agama:
 	}else {
         goto tampilanmenu;
     }
-
 mudahAgama:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -201,7 +197,7 @@ mudahAgama:
     }
 sedangAgama:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -212,7 +208,7 @@ sedangAgama:
     }
 sulitAgama:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -327,10 +323,9 @@ elektronika:
 	}else {
         goto tampilanmenu;
     }
-
 mudahelka:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -341,7 +336,7 @@ mudahelka:
     }
 sedangelka:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -352,7 +347,7 @@ sedangelka:
     }
 sulitelka:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -467,10 +462,9 @@ pengetahuanumum:
 	}else {
         goto tampilanmenu;
     }
-
 mudahpu:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -481,7 +475,7 @@ mudahpu:
     }
 sedangpu:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -492,7 +486,7 @@ sedangpu:
     }
 sulitpu:
     system("cls");
-    tips();
+    help();
     printf("\n\n\n\nKlik Y untuk memulai !!");
     printf("\nKlik apapun untuk kembali ke menu!");
     pilihan = getch();
@@ -628,7 +622,7 @@ void hasiltertinggi() {
         }printf("\n\n\t\t\t*************************************************************");
     }fclose(file);
 }
-void tips(){
+void help(){
     printf("\n\nBantuan :  ");
     printf("\n-------------------------------------------------------------------------");
     printf("\n>> Ada 5 soal yang harus kamu jawab");
