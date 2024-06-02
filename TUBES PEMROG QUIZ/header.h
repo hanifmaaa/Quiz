@@ -6,15 +6,15 @@
 #include <windows.h>
 #include <time.h>
 
-void help();
-void hasiltertinggi();
-void resetskor();
-void editskor(float, char[]);
+void help(); //deklarasi fungsi untuk bantuan
+void hasiltertinggi(); //deklarasi fungsi untuk perolehan hasil tertinggi
+void resetskor(); //deklarasi fungsi untuk mereset skor
+void editskor(float, char[]); //deklarasi fungsi untuk perhitungan skor
 
-typedef struct {
-    char soal[500];
-    char pilihan[4][100];
-    char jawabanbenar;
+typedef struct { //tipedata pertanyaan
+    char soal[500]; //variabel soal
+    char pilihan[4][100]; //variabel pilihan
+    char jawabanbenar; //variabel jawabanbenar
 } Pertanyaan;
 
 float timed_input(char *input, float timeout, float *waktusisa) {
@@ -31,22 +31,22 @@ float timed_input(char *input, float timeout, float *waktusisa) {
     *waktusisa = 0;
     return 0;
 }
-void utama() {
+void utama() { //fungsi utama
     char pilihan, jawab;
     int nyawa;
     float point, nilai;
     char nama[50];
-
-    Pertanyaan soalagamamudah[] = {
+    //soal agama mudah
+    Pertanyaan soalagamamudah[] = { 
         {"Rukun Islam ada berapa?", {"A.2", "B.3", "C.8", "D.5"}, 'D'},
         {"Ada berapa sifat wajib Allah?", {"A.20", "B.18", "C.5", "D.12"}, 'A'},
         {"Nabi dan Rasul yang terakhir adalah..", {"A.Nabi Yunus", "B.Nabi Yahya", "C.Nabi Muhammad", "D.Nabi Isa"}, 'C'},
         {"Ada berapa surat dalam Al-Quran?", {"A.118", "B.114", "C.112", "D.120"}, 'B'},
         {"Rukun iman yang terakhir adalah iman kepada...", {"A.Qada dan Qadar", "B.Kitab-Kitab Allah", "C.Allah", "D.Nabi dan Rasul"}, 'A'}
         };
-    int deretsoalagamamudah = sizeof(soalagamamudah) / sizeof(soalagamamudah[0]);
-
-    Pertanyaan soalagamasedang[] = {
+    int deretsoalagamamudah = sizeof(soalagamamudah) / sizeof(soalagamamudah[0]); 
+    //soal agama sedang
+    Pertanyaan soalagamasedang[] = { 
         {"Qudrat dalam sifat wajib Allah artinya", {"A.Berkehendak", "B.kekal", "C.esa", "D.berkuasa"}, 'D'},
         {"Al-Quran diturunkan ke bumi selama", {"A.22 tahun 2 bulan 12 hari", "B.22 tahun 2 bulan 20 hari","C.22 tahun 2 bulan 22 hari","D.22 tahun 20 bulan 2 hari"}, 'C'},
         {"Mukjizat yang diberikan kepada Nabi Muhammad salah satunya adalah?", {"A.Al-Quran","B.Tidak hangus terbakar api","C.Dapat mengendalikan angin","D.Dapat berbicara dengan hewan"}, 'A'},
@@ -54,7 +54,7 @@ void utama() {
         {"Apa itu suudzan?", {"A.Berprasangka buruk", "B.Berbuat buruk", "C.Berprasangka baik", "D.Berbuat baik"}, 'A'}
         };
     int deretsoalagamasedang = sizeof(soalagamasedang) / sizeof(soalagamasedang[0]);
-
+      //soal agama sulit
 	Pertanyaan soalagamasulit[] = {
 	    {"Apa yang dimaksud dengan konsep tauhid dalam Islam?", {"A.Percaya kepada banyak tuhan", "B.Percaya bahwa Allah adalah satu-satunya Tuhan", "C.Percaya pada reinkarnasi", "D.Percaya pada kekuatan alam"}, 'B'},
 	    {"Jelaskan konsep qadar (takdir) dalam Islam", {"A.Keyakinan bahwa semua kejadian adalah hasil usaha manusia", "B.Keyakinan bahwa semua kejadian adalah kebetulan", "C.Keyakinan bahwa semua kejadian telah ditetapkan oleh Allah", "D.Keyakinan bahwa semua kejadian adalah hasil doa"}, 'C'},
@@ -63,7 +63,7 @@ void utama() {
 	    {"Apa yang dimaksud dengan sunnah dalam Islam, dan bagaimana pengaruhnya dalam kehidupan umat Muslim?", {"A.Hukum wajib yang harus diikuti", "B.Tradisi yang ditinggalkan", "C.Tindakan, perkataan, dan persetujuan Nabi Muhammad yang menjadi contoh bagi umat Muslim", "D.Cerita rakyat yang tidak relevan"}, 'C'}
 	    };
     int deretsoalagamasulit = sizeof(soalagamasulit) / sizeof(soalagamasulit[0]);
-    
+    //soal elektronika mudah
     Pertanyaan soalelkaez[] = {
 	    {"Warna apa yang mewakili nilai 5 pada kode warna resistor?", {"A.Coklat", "B.Hijau", "C.Merah", "D.Kuning"}, 'B'},
 	    {"Berapakah nilai resistor dengan kode warna Merah, Ungu, Merah, Emas?", {"A.2700 ohm", "B.270 ohm", "C.27000 ohm", "D.270000 ohm"}, 'A'},
@@ -72,7 +72,7 @@ void utama() {
 	    {"Berapakah nilai resistor dengan kode warna Coklat, Hitam, Merah, Perak?", {"A.1.0 ohm", "B.100 ohm", "C.1000 ohm", "D.10 ohm"}, 'A'}
 	    };
     int deretsoalelkaez = sizeof(soalelkaez) / sizeof(soalelkaez[0]);
-    
+    //soal elekronika sedang
     Pertanyaan soalelkamed[] = {
 	    {"Komponen apa yang digunakan untuk menyimpan muatan listrik?", {"A. Resistor", "B. Kapasitor", "C. Induktor", "D. Transistor"}, 'B'},
 	    {"Hukum Ohm dinyatakan dengan persamaan?", {"A. V = I/R", "B. I = V/R", "C. P = VI", "D. V = IR"}, 'D'},
@@ -81,7 +81,7 @@ void utama() {
 	    {"Komponen apa yang digunakan untuk mengatur aliran arus dalam satu arah?", {"A. Resistor", "B. Kapasitor", "C. Dioda", "D. Induktor"}, 'C'}
 	    };
     int deretsoalelkamed = sizeof(soalelkamed) / sizeof(soalelkamed[0]);
-
+     //soal elektronika sulit
 	Pertanyaan soalelkahard[] = {
 	    {"Apa yang dimaksud dengan dioda?", {"A. Alat pengukur tegangan", "B. Komponen elektronik yang hanya mengizinkan arus mengalir satu arah", "C. Alat untuk mengukur resistansi", "D. Sumber listrik"}, 'B'},
 	    {"Komponen apa yang digunakan untuk menyimpan dan melepaskan muatan listrik dalam sebuah sirkuit elektronik?", {"A. Resistor", "B. Dioda", "C. Kapasitor", "D. Transistor"}, 'C'},
@@ -90,7 +90,7 @@ void utama() {
 	    {"Berapa banyak kaki (pin) yang biasanya dimiliki oleh transistor bipolar jenis NPN?", {"A. 2", "B. 3", "C. 4", "D. 5"}, 'B'}
 	    };
     int deretsoalelkahard = sizeof(soalelkahard) / sizeof(soalelkahard[0]);
-    
+    //soal pengetahuan umum mudah
     Pertanyaan soalpuez[] = {
 	    {"Siapa nama presiden ketiga Indonesia?", {"A. Sukarno", "B. Soeharto", "C. BJ Habibie", "D. Abdurrahman Wahid"}, 'C'},
 	    {"Apa nama planet terdekat dari matahari?", {"A. Venus", "B. Mars", "C. Bumi", "D. Merkurius"}, 'D'},
@@ -99,7 +99,7 @@ void utama() {
 	    {"Berapakah 5 + 7?", {"A. 10", "B. 11", "C. 12", "D. 13"}, 'C'}
 	    };
     int deretsoalpuez = sizeof(soalpuez) / sizeof(soalpuez[0]);
-    
+    //soal pengetahuan umum sedang
 	Pertanyaan soalpumed[] = {
 	    {"Siapa Nama Panjang Jendral Soedirman?", {"A. Muhammad Soedirman", "B. Raden Shaleh", "C. Raden Soedirman", "D. Raden Pati"}, 'C'},
 	    {"Kota yang dijuluki Kota Batik adalah Kota..?", {"A. Tegal", "B. Semarang", "C. Jakarta", "D. Pekalongan"}, 'D'},
@@ -108,7 +108,7 @@ void utama() {
 	    {"Lagu kebangsaan Indonesia adalah?", {"A. Indonesia Raya", "B. Garuda Pancasila", "C. Halo-Halo Bandung", "D. Rayuan Pulau Kelapa"}, 'A'}
 	    };
     int deretsoalpumed = sizeof(soalpumed) / sizeof(soalpumed[0]);
-
+    soal pengetahuan umum hard
 	Pertanyaan soalpuhard[] = {
 	    {"Pada tahun berapa Revolusi Industri dimulai di Inggris?", {"A. 1600", "B. 1700", "C. 1800", "D. 1900"}, 'B'},
 	    {"Siapa nama penyair terkenal dari Jepang yang karyanya banyak digemari di seluruh dunia?", {"A. Haiku Matsuo", "B. Ryūnosuke Akutagawa", "C. Yasunari Kawabata", "D. Haruki Murakami"}, 'C'},
@@ -118,7 +118,7 @@ void utama() {
 	    };
     int deretsoalpuhard = sizeof(soalpuhard) / sizeof(soalpuhard[0]);
     
-    tampilanmenu:
+    tampilanmenu: //
     system("cls");
     printf("\t\t_________________________________");
     printf("\n\t\t|         SELAMAT DATANG        |");
